@@ -1,4 +1,4 @@
-package servlet;
+package servelts;
 
 import java.io.IOException;
 import java.sql.Date;
@@ -37,10 +37,10 @@ public class SvPersona extends HttpServlet {
 			HttpSession httpSession = request.getSession();
 			httpSession.setAttribute("personas", personas);
 			
-			response.sendRedirect("persona.jsp");
+			response.sendRedirect("personas.jsp");
 			
 			
-		} catch(SQLException e) {
+		} catch(Exception e) {
 			e.printStackTrace();
 		}
 		

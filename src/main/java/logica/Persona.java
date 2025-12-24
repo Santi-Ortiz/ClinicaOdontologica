@@ -1,12 +1,21 @@
 package logica;
 
+import java.io.Serializable;
 import java.sql.Date;
 
-import jakarta.persistence.Entity;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 
 @Entity
-public class Persona {
+@Table(name="PERSONA")
+public class Persona{
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int idPersona;
 	
 	private int numeroIdentificacion;
@@ -89,3 +98,4 @@ public class Persona {
 	
 
 }
+

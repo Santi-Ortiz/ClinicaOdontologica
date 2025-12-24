@@ -21,4 +21,13 @@ public class ControladorPersona {
 		return persistenciaPersona.obtenerPersonaPorId(id);
 	}
 	
+	public void actualizarPersona(Persona persona) throws Exception {
+		persistenciaPersona.actualizarPersona(persona);
+	}
+	
+	public void eliminarPersona(int id) throws Exception{
+		persistenciaPersona.eliminarPersona(id);
+	}
+	
 }
+
