@@ -1,6 +1,5 @@
 package logica;
 
-import java.io.Serializable;
 import java.sql.Date;
 
 import javax.persistence.Entity;
@@ -16,7 +15,7 @@ public class Persona{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int idPersona;
+	private Long idPersona;
 	
 	private int numeroIdentificacion;
 	
@@ -30,7 +29,7 @@ public class Persona{
 		
 	}
 	
-	public Persona(int idPersona, int numeroIdentificacion, String nombre, int telefono, Date fechaNacimiento) {
+	public Persona(Long idPersona, int numeroIdentificacion, String nombre, int telefono, Date fechaNacimiento) {
 		this.setIdPersona(idPersona);
 		this.numeroIdentificacion = numeroIdentificacion;
 		this.nombre = nombre;
@@ -47,11 +46,11 @@ public class Persona{
 	
 	/* Getters y Setters */
 
-	public int getIdPersona() {
+	public Long getIdPersona() {
 		return idPersona;
 	}
 
-	public void setIdPersona(int idPersona) {
+	public void setIdPersona(Long idPersona) {
 		this.idPersona = idPersona;
 	}
 	
@@ -93,9 +92,5 @@ public class Persona{
 				+ nombre + ", telefono: " + telefono + ", fechaNacimiento: " + fechaNacimiento + "\n";
 	}
 	
-	
-	
-	
-
 }
 
