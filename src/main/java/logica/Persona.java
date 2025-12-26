@@ -19,7 +19,7 @@ public class Persona{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idPersona;
+	private Long personaId;
 	
 	private int numeroIdentificacion;
 	
@@ -33,29 +33,29 @@ public class Persona{
 		
 	}
 	
-	public Persona(Long idPersona, int numeroIdentificacion, String nombre, int telefono, Date fechaNacimiento) {
-		this.setIdPersona(idPersona);
+	public Persona(Long personaId, int numeroIdentificacion, String nombre, int telefono, Date fechaNacimiento) {
+		this.personaId = personaId;
 		this.numeroIdentificacion = numeroIdentificacion;
 		this.nombre = nombre;
-		this.setTelefono(telefono);
-		this.setFechaNacimiento(fechaNacimiento);
+		this.telefono = telefono;
+		this.fechaNacimiento = fechaNacimiento;
 	}
 	
 	public Persona(int numeroIdentificacion, String nombre, int telefono, Date fechaNacimiento) {
 		this.numeroIdentificacion = numeroIdentificacion;
 		this.nombre = nombre;
-		this.setTelefono(telefono);
-		this.setFechaNacimiento(fechaNacimiento);
+		this.telefono = telefono;
+		this.fechaNacimiento = fechaNacimiento;
 	}
 	
 	/* Getters y Setters */
 
-	public Long getIdPersona() {
-		return idPersona;
+	public Long getPersonaId() {
+		return personaId;
 	}
 
-	public void setIdPersona(Long idPersona) {
-		this.idPersona = idPersona;
+	public void setPersonaId(Long personaId) {
+		this.personaId = personaId;
 	}
 	
 	public int getNumeroIdentificacion() {
@@ -92,7 +92,7 @@ public class Persona{
 
 	@Override
 	public String toString() {
-		return "\nPersona -> idPersona: " + idPersona + ", numeroIdentificacion: " + numeroIdentificacion + ", nombre: "
+		return "\nPersona -> personaId: " + personaId + ", numeroIdentificacion: " + numeroIdentificacion + ", nombre: "
 				+ nombre + ", telefono: " + telefono + ", fechaNacimiento: " + fechaNacimiento + "\n";
 	}
 	

@@ -82,8 +82,8 @@ public class PersonaJPAController{
             persona = em.merge(persona);
             em.getTransaction().commit();
         } catch (Exception ex) {
-            if (findPersona(persona.getIdPersona()) == null) {
-                throw new Exception("La persona con id " + persona.getIdPersona() + " no existe.");
+            if (findPersona(persona.getPersonaId()) == null) {
+                throw new Exception("La persona con id " + persona.getPersonaId() + " no existe.");
             }
             throw ex;
         } finally {
@@ -102,7 +102,7 @@ public class PersonaJPAController{
             Persona persona;
             try {
                 persona = em.getReference(Persona.class, id);
-                persona.getIdPersona();
+                persona.getPersonaId();
             } catch (Exception ex) {
                 throw new Exception("La persona con id " + id + " no existe.", ex);
             }

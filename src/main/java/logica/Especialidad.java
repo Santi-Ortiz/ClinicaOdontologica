@@ -12,7 +12,7 @@ public class Especialidad {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int idEspecialidad;
+	private int especialidadId;
 	
 	private String especialidad;
 	
@@ -21,8 +21,8 @@ public class Especialidad {
 		
 	}
 	
-	public Especialidad(int idEspecialidad, String especialidad) {
-		this.idEspecialidad = idEspecialidad;
+	public Especialidad(int especialidadId, String especialidad) {
+		this.especialidadId = especialidadId;
 		this.especialidad = especialidad;
 	}
 	
@@ -33,12 +33,12 @@ public class Especialidad {
 
 	/* Getters y Setters */
 	
-	public int getIdEspecialidad() {
-		return idEspecialidad;
+	public int getEspecialidadId() {
+		return especialidadId;
 	}
 
-	public void setIdEspecialidad(int idEspecialidad) {
-		this.idEspecialidad = idEspecialidad;
+	public void setEspecialidadId(int especialidadId) {
+		this.especialidadId = especialidadId;
 	}
 
 	public String getEspecialidad() {
@@ -52,7 +52,7 @@ public class Especialidad {
 
 	@Override
 	public String toString() {
-		return "Especialidad -> { \n idEspecialidad: " + idEspecialidad + ", \n especialidad: " + especialidad + "";
+		return "Especialidad -> { \n especialidadId: " + especialidadId + ", \n especialidad: " + especialidad + "";
 	}
 	
 }

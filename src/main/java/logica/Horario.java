@@ -14,7 +14,7 @@ public class Horario {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idHorario;
+	private Long horarioId;
 	
 	private Date fechaInicio;
 	
@@ -24,18 +24,18 @@ public class Horario {
 		
 	}
 	
-	public Horario(Long idHorario, Date fechaInicio, Date fechaFin) {
-		this.idHorario = idHorario;
+	public Horario(Long horarioId, Date fechaInicio, Date fechaFin) {
+		this.horarioId = horarioId;
 		this.fechaInicio = fechaInicio;
 		this.fechaFin = fechaFin;
 	}
 
-	public Long getIdHorario() {
-		return idHorario;
+	public Long getHorarioId() {
+		return horarioId;
 	}
 
-	public void setIdHorario(Long idHorario) {
-		this.idHorario = idHorario;
+	public void setHorarioId(Long horarioId) {
+		this.horarioId = horarioId;
 	}
 
 	public Date getFechaInicio() {
@@ -56,7 +56,7 @@ public class Horario {
 
 	@Override
 	public String toString() {
-		return "\n Horario -> idHorario: " + idHorario + ", fechaInicio: " + fechaInicio + ", fechaFin: " + fechaFin + "\n";
+		return "\n Horario -> horarioId: " + horarioId + ", fechaInicio: " + fechaInicio + ", fechaFin: " + fechaFin + "\n";
 	}
 	
 	

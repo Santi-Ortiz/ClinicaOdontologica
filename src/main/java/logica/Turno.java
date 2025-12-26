@@ -17,16 +17,16 @@ public class Turno {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Long turnoId;
 	
 	private Date fechaTurno;
 	
 	private int duracionConsulta;
 	
 	// Desde el lado de Turno, se tiene la relación muchos a uno
-	// Se ubica el nombre id_odontologo ya que referencia a la llave primaria de Odontologo
+	// Se ubica el nombre idTurno_odontologo ya que referencia a la llave primaria de Odontologo
 	@ManyToOne
-	@JoinColumn(name="id_odontologo")
+	@JoinColumn(name="odontologo_id")
 	private Odontologo odontologo;
 	
 	@OneToOne
@@ -36,9 +36,9 @@ public class Turno {
 		
 	}
 
-	public Turno(Long id, Date fechaTurno, int duracionConsulta, Odontologo odontologo, Paciente paciente) {
+	public Turno(Long turnoId, Date fechaTurno, int duracionConsulta, Odontologo odontologo, Paciente paciente) {
 		super();
-		this.id = id;
+		this.turnoId = turnoId;
 		this.fechaTurno = fechaTurno;
 		this.duracionConsulta = duracionConsulta;
 		this.odontologo = odontologo;
@@ -47,12 +47,12 @@ public class Turno {
 
 	/* Getters y Setters */
 
-	public Long getId() {
-		return id;
+	public Long turnoId() {
+		return turnoId;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void turnoId(Long turnoId) {
+		this.turnoId = turnoId;
 	}
 
 	public Date getFechaTurno() {
