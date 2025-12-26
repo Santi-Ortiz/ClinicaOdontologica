@@ -6,15 +6,19 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.Table;
-
 
 @Entity
 @Table(name="PERSONA")
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS) 
+// Estrategia TABLE_PER_CLASS crea una tabla para cada una de las clases, incluyendo la clase Padre (Persona)
+// El id para Odontologo y Paciente se maneja a través de Persona (clase Padre)
 public class Persona{
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idPersona;
 	
 	private int numeroIdentificacion;

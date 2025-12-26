@@ -6,6 +6,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -13,24 +16,29 @@ import javax.persistence.Table;
 public class Turno {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long idTurno;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 	
 	private Date fechaTurno;
 	
 	private int duracionConsulta;
 	
+	// Desde el lado de Turno, se tiene la relación muchos a uno
+	// Se ubica el nombre id_odontologo ya que referencia a la llave primaria de Odontologo
+	@ManyToOne
+	@JoinColumn(name="id_odontologo")
 	private Odontologo odontologo;
 	
+	@OneToOne
 	private Paciente paciente;
 
 	public Turno() {
 		
 	}
 
-	public Turno(Long idTurno, Date fechaTurno, int duracionConsulta, Odontologo odontologo, Paciente paciente) {
+	public Turno(Long id, Date fechaTurno, int duracionConsulta, Odontologo odontologo, Paciente paciente) {
 		super();
-		this.idTurno = idTurno;
+		this.id = id;
 		this.fechaTurno = fechaTurno;
 		this.duracionConsulta = duracionConsulta;
 		this.odontologo = odontologo;
@@ -39,12 +47,12 @@ public class Turno {
 
 	/* Getters y Setters */
 
-	public Long getIdTurno() {
-		return idTurno;
+	public Long getId() {
+		return id;
 	}
 
-	public void setIdTurno(Long idTurno) {
-		this.idTurno = idTurno;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public Date getFechaTurno() {
@@ -78,6 +86,5 @@ public class Turno {
 	public void setPaciente(Paciente paciente) {
 		this.paciente = paciente;
 	}
-	
 	
 }

@@ -11,7 +11,7 @@ import javax.persistence.Table;
 public class Especialidad {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idEspecialidad;
 	
 	private String especialidad;
@@ -54,7 +54,5 @@ public class Especialidad {
 	public String toString() {
 		return "Especialidad -> { \n idEspecialidad: " + idEspecialidad + ", \n especialidad: " + especialidad + "";
 	}
-	
-	
 	
 }

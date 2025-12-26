@@ -16,7 +16,7 @@ public class PersonaJPAController{
     }
    
     public PersonaJPAController() {
-    	emf = Persistence.createEntityManagerFactory("Persistencia");
+    	emf = Persistence.createEntityManagerFactory("ClinicaOdontologica_PU");
     }
 
     public EntityManager getEntityManager() {
@@ -39,7 +39,7 @@ public class PersonaJPAController{
     }
 
     // Leer (Encontrar por ID)
-    public Persona findPersona(int id) {
+    public Persona findPersona(Long id) {
         EntityManager em = getEntityManager();
         try {
             return em.find(Persona.class, id);
@@ -94,7 +94,7 @@ public class PersonaJPAController{
     }
 
     // Eliminar 
-    public void destroy(int id) throws Exception {
+    public void destroy(Long id) throws Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();

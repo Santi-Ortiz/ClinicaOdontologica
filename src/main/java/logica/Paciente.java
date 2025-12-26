@@ -1,6 +1,10 @@
 package logica;
 
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -13,18 +17,25 @@ public class Paciente extends Persona{
 	
 	private String rh;
 	
+	@OneToOne
 	private Responsable responsable;
+	
+	// La relación con Turno es uno a muchos, un paciente tiene muchos turnos
+	// Se establece el nombre del atributo de 'Paciente' en 'Turno'
+	@OneToMany(mappedBy = "paciente")
+	private List<Turno> turnos;
 	
 	public Paciente() {
 		
 	}
 
-	public Paciente(String enfermedad, String tipoTratamiento, String rh, Responsable responsable) {
+	public Paciente(String enfermedad, String tipoTratamiento, String rh, Responsable responsable, List<Turno> turnos) {
 		super();
 		this.enfermedad = enfermedad;
 		this.tipoTratamiento = tipoTratamiento;
 		this.rh = rh;
 		this.responsable = responsable;
+		this.turnos = turnos;
 	}
 	
 
@@ -61,5 +72,21 @@ public class Paciente extends Persona{
 	public void setResponsable(Responsable responsable) {
 		this.responsable = responsable;
 	}
+
+	public List<Turno> getTurnos() {
+		return turnos;
+	}
+
+	public void setTurnos(List<Turno> turnos) {
+		this.turnos = turnos;
+	}
+
+	@Override
+	public String toString() {
+		return "\n Paciente -> enfermedad: " + enfermedad + ", tipoTratamiento: " + tipoTratamiento + ", rh: " + rh
+				+ ", responsable: " + responsable + ", turnos: " + turnos + "\n";
+	}
+	
+	
 
 }

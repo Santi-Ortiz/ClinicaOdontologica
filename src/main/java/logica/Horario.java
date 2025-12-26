@@ -13,7 +13,7 @@ import javax.persistence.Table;
 public class Horario {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idHorario;
 	
 	private Date fechaInicio;
@@ -53,5 +53,12 @@ public class Horario {
 	public void setFechaFin(Date fechaFin) {
 		this.fechaFin = fechaFin;
 	}
+
+	@Override
+	public String toString() {
+		return "\n Horario -> idHorario: " + idHorario + ", fechaInicio: " + fechaInicio + ", fechaFin: " + fechaFin + "\n";
+	}
+	
+	
 	
 }

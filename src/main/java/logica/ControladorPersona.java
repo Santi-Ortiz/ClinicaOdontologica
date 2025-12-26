@@ -17,7 +17,7 @@ public class ControladorPersona {
 		return persistenciaPersona.obtenerPersonas();
 	}
 	
-	public Persona obtenerPersonaPorId(int id) throws SQLException {
+	public Persona obtenerPersonaPorId(Long id) throws SQLException {
 		return persistenciaPersona.obtenerPersonaPorId(id);
 	}
 	
@@ -25,7 +25,7 @@ public class ControladorPersona {
 		persistenciaPersona.actualizarPersona(persona);
 	}
 	
-	public void eliminarPersona(int id) throws Exception{
+	public void eliminarPersona(Long id) throws Exception{
 		persistenciaPersona.eliminarPersona(id);
 	}
 	

@@ -29,4 +29,11 @@ public class Responsable extends Persona{
 		this.parentesco = parentesco;
 	}
 
+	@Override
+	public String toString() {
+		return "\n Responsable -> parentesco: " + parentesco + "\n";
+	}
+	
+	
+
 }

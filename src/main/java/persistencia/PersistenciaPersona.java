@@ -16,7 +16,7 @@ public class PersistenciaPersona {
 		return personaJPAController.findPersonaEntities();
 	}
 	
-	public Persona obtenerPersonaPorId(int id){
+	public Persona obtenerPersonaPorId(Long id){
 		return personaJPAController.findPersona(id);
 	}
 	
@@ -24,7 +24,7 @@ public class PersistenciaPersona {
 		personaJPAController.edit(persona);
 	}
 	
-	public void eliminarPersona(int id) throws Exception{
+	public void eliminarPersona(Long id) throws Exception{
 		personaJPAController.destroy(id);
 	}
 
