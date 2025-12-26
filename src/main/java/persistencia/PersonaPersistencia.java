@@ -4,9 +4,9 @@ import java.util.List;
 
 import logica.Persona;
 
-public class PersistenciaPersona {
+public class PersonaPersistencia {
 	
-	PersonaJPAController personaJPAController = new PersonaJPAController();
+	PersonaJpaController personaJPAController = new PersonaJpaController();
 	
 	public void crearPersona(Persona persona) {
 		personaJPAController.create(persona);

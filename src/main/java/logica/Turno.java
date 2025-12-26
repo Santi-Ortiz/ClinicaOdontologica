@@ -16,7 +16,7 @@ import javax.persistence.Table;
 public class Turno {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long turnoId;
 	
 	private Date fechaTurno;
@@ -26,7 +26,7 @@ public class Turno {
 	// Desde el lado de Turno, se tiene la relación muchos a uno
 	// Se ubica el nombre idTurno_odontologo ya que referencia a la llave primaria de Odontologo
 	@ManyToOne
-	@JoinColumn(name="odontologo_id")
+	@JoinColumn(name="persona_id")
 	private Odontologo odontologo;
 	
 	@OneToOne
@@ -47,11 +47,11 @@ public class Turno {
 
 	/* Getters y Setters */
 
-	public Long turnoId() {
+	public Long getTurnoId() {
 		return turnoId;
 	}
 
-	public void turnoId(Long turnoId) {
+	public void setTurnoId(Long turnoId) {
 		this.turnoId = turnoId;
 	}
 

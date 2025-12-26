@@ -1,21 +1,23 @@
 package persistencia;
 
 import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaQuery;
-import logica.Persona;
 
-public class PersonaJPAController{
+import logica.Turno;
 
-    private EntityManagerFactory emf = null;
+public class TurnoJpaController {
+	
+	private EntityManagerFactory emf = null;
 
-    public PersonaJPAController(EntityManagerFactory emf) {
+    public TurnoJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
    
-    public PersonaJPAController() {
+    public TurnoJpaController() {
     	emf = Persistence.createEntityManagerFactory("ClinicaOdontologica_PU");
     }
 
@@ -24,12 +26,12 @@ public class PersonaJPAController{
     }
 
     // Crear (Insertar)
-    public void create(Persona persona) {
+    public void create(Turno Turno) {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            em.persist(persona);
+            em.persist(Turno);
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -39,29 +41,29 @@ public class PersonaJPAController{
     }
 
     // Leer (Encontrar por ID)
-    public Persona findPersona(Long id) {
+    public Turno findTurno(Long id) {
         EntityManager em = getEntityManager();
         try {
-            return em.find(Persona.class, id);
+            return em.find(Turno.class, id);
         } finally {
             em.close();
         }
     }
 
     // Leer (Encontrar TODOS)
-    public List<Persona> findPersonaEntities() {
-        return findPersonaEntities(true, -1, -1);
+    public List<Turno> findTurnoEntities() {
+        return findTurnoEntities(true, -1, -1);
     }
 
-    public List<Persona> findPersonaEntities(int maxResults, int firstResult) {
-        return findPersonaEntities(false, maxResults, firstResult);
+    public List<Turno> findTurnoEntities(int maxResults, int firstResult) {
+        return findTurnoEntities(false, maxResults, firstResult);
     }
 
-    private List<Persona> findPersonaEntities(boolean all, int maxResults, int firstResult) {
+    private List<Turno> findTurnoEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
-            CriteriaQuery<Persona> cq = em.getCriteriaBuilder().createQuery(Persona.class);
-            cq.select(cq.from(Persona.class));
+            CriteriaQuery<Turno> cq = em.getCriteriaBuilder().createQuery(Turno.class);
+            cq.select(cq.from(Turno.class));
             javax.persistence.Query q = em.createQuery(cq);
             if (!all) {
                 q.setMaxResults(maxResults);
@@ -74,16 +76,16 @@ public class PersonaJPAController{
     }
 
     // Actualizar (Editar)
-    public void edit(Persona persona) throws Exception {
+    public void edit(Turno Turno) throws Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            persona = em.merge(persona);
+            Turno = em.merge(Turno);
             em.getTransaction().commit();
         } catch (Exception ex) {
-            if (findPersona(persona.getPersonaId()) == null) {
-                throw new Exception("La persona con id " + persona.getPersonaId() + " no existe.");
+            if (findTurno(Turno.getTurnoId()) == null) {
+                throw new Exception("El Turno con id " + Turno.getTurnoId() + " no existe.");
             }
             throw ex;
         } finally {
@@ -99,14 +101,14 @@ public class PersonaJPAController{
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            Persona persona;
+            Turno Turno;
             try {
-                persona = em.getReference(Persona.class, id);
-                persona.getPersonaId();
+                Turno = em.getReference(Turno.class, id);
+                Turno.getTurnoId();
             } catch (Exception ex) {
-                throw new Exception("La persona con id " + id + " no existe.", ex);
+                throw new Exception("El Turno con id " + id + " no existe.", ex);
             }
-            em.remove(persona);
+            em.remove(Turno);
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -114,4 +116,5 @@ public class PersonaJPAController{
             }
         }
     }
+
 }

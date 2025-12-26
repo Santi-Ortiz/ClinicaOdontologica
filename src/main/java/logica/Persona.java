@@ -18,52 +18,52 @@ import javax.persistence.Table;
 public class Persona{
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long personaId;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long persona_id;
 	
-	private int numeroIdentificacion;
+	private int numero_identificacion;
 	
 	private String nombre;
 	
 	private int telefono;
 	
-	private Date fechaNacimiento;
+	private Date fecha_nacimiento;
 	
 	public Persona() {
 		
 	}
 	
-	public Persona(Long personaId, int numeroIdentificacion, String nombre, int telefono, Date fechaNacimiento) {
-		this.personaId = personaId;
-		this.numeroIdentificacion = numeroIdentificacion;
+	public Persona(Long persona_id, int numero_identificacion, String nombre, int telefono, Date fecha_nacimiento) {
+		this.persona_id = persona_id;
+		this.numero_identificacion = numero_identificacion;
 		this.nombre = nombre;
 		this.telefono = telefono;
-		this.fechaNacimiento = fechaNacimiento;
+		this.fecha_nacimiento = fecha_nacimiento;
 	}
 	
-	public Persona(int numeroIdentificacion, String nombre, int telefono, Date fechaNacimiento) {
-		this.numeroIdentificacion = numeroIdentificacion;
+	public Persona(int numero_identificacion, String nombre, int telefono, Date fecha_nacimiento) {
+		this.numero_identificacion = numero_identificacion;
 		this.nombre = nombre;
 		this.telefono = telefono;
-		this.fechaNacimiento = fechaNacimiento;
+		this.fecha_nacimiento = fecha_nacimiento;
 	}
 	
 	/* Getters y Setters */
 
 	public Long getPersonaId() {
-		return personaId;
+		return persona_id;
 	}
 
-	public void setPersonaId(Long personaId) {
-		this.personaId = personaId;
+	public void setPersonaId(Long persona_id) {
+		this.persona_id = persona_id;
 	}
 	
 	public int getNumeroIdentificacion() {
-		return numeroIdentificacion;
+		return numero_identificacion;
 	}
 	
-	public void setNumeroIdentificacion(int numeroIdentificacion) {
-		this.numeroIdentificacion = numeroIdentificacion;
+	public void setNumeroIdentificacion(int numero_identificacion) {
+		this.numero_identificacion = numero_identificacion;
 	}
 	
 	public String getNombre() {
@@ -82,18 +82,18 @@ public class Persona{
 		this.telefono = telefono;
 	}
 
-	public Date getFechaNacimiento() {
-		return fechaNacimiento;
+	public Date getfechaNacimiento() {
+		return fecha_nacimiento;
 	}
 
-	public void setFechaNacimiento(Date fechaNacimiento) {
-		this.fechaNacimiento = fechaNacimiento;
+	public void setfechaNacimiento(Date fecha_nacimiento) {
+		this.fecha_nacimiento = fecha_nacimiento;
 	}
 
 	@Override
 	public String toString() {
-		return "\nPersona -> personaId: " + personaId + ", numeroIdentificacion: " + numeroIdentificacion + ", nombre: "
-				+ nombre + ", telefono: " + telefono + ", fechaNacimiento: " + fechaNacimiento + "\n";
+		return "\nPersona -> persona_id: " + persona_id + ", numero_identificacion: " + numero_identificacion + ", nombre: "
+				+ nombre + ", telefono: " + telefono + ", fecha_nacimiento: " + fecha_nacimiento + "\n";
 	}
 	
 }

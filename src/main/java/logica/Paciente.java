@@ -13,7 +13,7 @@ public class Paciente extends Persona{
 	
 	private String enfermedad;
 	
-	private String tipoTratamiento;
+	private String tipo_tratamiento;
 	
 	private String rh;
 	
@@ -29,10 +29,10 @@ public class Paciente extends Persona{
 		
 	}
 
-	public Paciente(String enfermedad, String tipoTratamiento, String rh, Responsable responsable, List<Turno> turnos) {
+	public Paciente(String enfermedad, String tipo_tratamiento, String rh, Responsable responsable, List<Turno> turnos) {
 		super();
 		this.enfermedad = enfermedad;
-		this.tipoTratamiento = tipoTratamiento;
+		this.tipo_tratamiento = tipo_tratamiento;
 		this.rh = rh;
 		this.responsable = responsable;
 		this.turnos = turnos;
@@ -50,11 +50,11 @@ public class Paciente extends Persona{
 	}
 
 	public String getTipoTratamiento() {
-		return tipoTratamiento;
+		return tipo_tratamiento;
 	}
 
-	public void setTipoTratamiento(String tipoTratamiento) {
-		this.tipoTratamiento = tipoTratamiento;
+	public void setTipoTratamiento(String tipo_tratamiento) {
+		this.tipo_tratamiento = tipo_tratamiento;
 	}
 
 	public String getRh() {
@@ -83,7 +83,7 @@ public class Paciente extends Persona{
 
 	@Override
 	public String toString() {
-		return "\n Paciente -> enfermedad: " + enfermedad + ", tipoTratamiento: " + tipoTratamiento + ", rh: " + rh
+		return "\n Paciente -> enfermedad: " + enfermedad + ", tipo_tratamiento: " + tipo_tratamiento + ", rh: " + rh
 				+ ", responsable: " + responsable + ", turnos: " + turnos + "\n";
 	}
 	

@@ -12,7 +12,7 @@
 		<form action="SvPersona" method="POST">
 			<p>
 				<label>Número Identificacion: </label> 
-				<input type="text" name="numeroIdentificacion">
+				<input type="text" name="numero_identificacion">
 			</p>
 			<p>
 				<label>Nombre: </label> 
@@ -24,7 +24,7 @@
 			</p>
 			<p>
 				<label>Fecha Nacimiento: </label> 
-				<input type="date" name="fechaNacimiento">
+				<input type="date" name="fecha_nacimiento">
 			</p>
 			
 			<button type="submit"> Enviar </button>

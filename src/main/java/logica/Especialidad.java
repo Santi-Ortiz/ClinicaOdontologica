@@ -11,8 +11,8 @@ import javax.persistence.Table;
 public class Especialidad {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int especialidadId;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long especialidad_id;
 	
 	private String especialidad;
 	
@@ -21,8 +21,8 @@ public class Especialidad {
 		
 	}
 	
-	public Especialidad(int especialidadId, String especialidad) {
-		this.especialidadId = especialidadId;
+	public Especialidad(Long especialidad_id, String especialidad) {
+		this.especialidad_id = especialidad_id;
 		this.especialidad = especialidad;
 	}
 	
@@ -33,12 +33,12 @@ public class Especialidad {
 
 	/* Getters y Setters */
 	
-	public int getEspecialidadId() {
-		return especialidadId;
+	public Long getEspecialidadId() {
+		return especialidad_id;
 	}
 
-	public void setEspecialidadId(int especialidadId) {
-		this.especialidadId = especialidadId;
+	public void setEspecialidadId(Long especialidad_id) {
+		this.especialidad_id = especialidad_id;
 	}
 
 	public String getEspecialidad() {
@@ -52,7 +52,7 @@ public class Especialidad {
 
 	@Override
 	public String toString() {
-		return "Especialidad -> { \n especialidadId: " + especialidadId + ", \n especialidad: " + especialidad + "";
+		return "Especialidad -> { \n especialidadId: " + especialidad_id + ", \n especialidad: " + especialidad + "";
 	}
 	
 }

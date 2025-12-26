@@ -3,11 +3,11 @@ package logica;
 import java.sql.SQLException;
 import java.util.List;
 
-import persistencia.PersistenciaPersona;
+import persistencia.PersonaPersistencia;
 
 public class ControladorPersona {
 	
-	PersistenciaPersona persistenciaPersona = new PersistenciaPersona();
+	PersonaPersistencia persistenciaPersona = new PersonaPersistencia();
 	
 	public void crearPersona(Persona persona) throws SQLException {
 		persistenciaPersona.crearPersona(persona);
