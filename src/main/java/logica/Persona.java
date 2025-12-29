@@ -92,8 +92,8 @@ public class Persona{
 
 	@Override
 	public String toString() {
-		return "\nPersona -> persona_id: " + persona_id + ", numero_identificacion: " + numero_identificacion + ", nombre: "
-				+ nombre + ", telefono: " + telefono + ", fecha_nacimiento: " + fecha_nacimiento + "\n";
+		return "Persona -> persona_id: " + persona_id + ", numero_identificacion: " + numero_identificacion + ", nombre: "
+				+ nombre + ", telefono: " + telefono + ", fecha_nacimiento: " + fecha_nacimiento;
 	}
 	
 }

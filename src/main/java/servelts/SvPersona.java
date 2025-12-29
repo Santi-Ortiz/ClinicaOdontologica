@@ -56,7 +56,7 @@ public class SvPersona extends HttpServlet {
         
         
         Persona persona = new Persona(numeroIdentificacion, nombre, telefono, fechaNacimiento);
-        System.out.println("Persona recibida: " + persona);
+        
         
         try {
 			persistenciaPersona.crearPersona(persona);
