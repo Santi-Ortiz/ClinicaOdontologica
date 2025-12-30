@@ -23,5 +23,6 @@
     <Logger name="org.example" level="DEBUG">
       <AppenderRef ref="DEBUG_LOG"/>
     </Logger>
+    <Logger name="org.apache.struts2" level="DEBUG"/>
   </Loggers>
 </Configuration>

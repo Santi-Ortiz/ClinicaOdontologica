@@ -6,7 +6,25 @@
   <packaging>war</packaging>
   <name>ClinicaOdontologica</name>
   
+  <!-- <build>
   
+  		<finalName>ClinicaOdontologica</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <version>9.4.44.v20210927</version>
+                <configuration>
+                    <webApp>
+                        <contextPath>/</contextPath>
+                    </webApp>
+                    <scanIntervalSeconds>10</scanIntervalSeconds>
+                </configuration>
+            </plugin>
+        </plugins>
+  </build>  -->
+  
+ 
   <dependencies>
   
   	<!-- Dependencias de Persistencia: Hibernate y JPA -->
@@ -41,12 +59,6 @@
 	</dependency>
 	
 	
-	<!-- <dependency>
-       	<groupId>org.apache.openjpa</groupId>
-        <artifactId>openjpa</artifactId>
-        <version>4.0.1</version>
-	</dependency> -->
-	
 	<!-- Base de Datos PostreSQL-->
 	<!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
 	<dependency>
@@ -55,14 +67,7 @@
 	    <version>42.7.7</version>
 	</dependency>
 	
-	<!-- Java Server Pages (JSP)-->
-	<!-- https://mvnrepository.com/artifact/jakarta.servlet.jsp/jakarta.servlet.jsp-api -->
-	<!-- <dependency>
-	    <groupId>jakarta.servlet.jsp</groupId>
-	    <artifactId>jakarta.servlet.jsp-api</artifactId>
-	    <version>3.1.1</version>
-	    <scope>provided</scope>
-	</dependency> -->
+	
 	
 	<!-- Logs (SLF4J)-->
 	<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
@@ -72,13 +77,6 @@
 	    <version>2.0.17</version>
 	</dependency>
 	
-	<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-jdk14 -->
-	<!-- <dependency>
-	    <groupId>org.slf4j</groupId>
-	    <artifactId>slf4j-jdk14</artifactId>
-	    <version>2.0.16</version>
-	    <scope>runtime</scope>
-	</dependency> -->
 	
 	<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-simple -->
 	<dependency>
@@ -88,14 +86,34 @@
 	    <scope>runtime</scope>
 	</dependency>
 
-	<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-log4j12 -->
-	<!-- <dependency>
-	    <groupId>org.slf4j</groupId>
-	    <artifactId>slf4j-log4j12</artifactId>
-	    <version>2.0.16</version>
-	    <scope>runtime</scope>
-	</dependency> -->
+	
+	<!-- APACHE STRUTS -->
 
+	<!-- https://mvnrepository.com/artifact/org.apache.struts/struts2-core -->
+	<dependency>
+        <groupId>org.apache.struts</groupId>
+        <artifactId>struts2-core</artifactId>
+        <version>2.5.22</version>
+    </dependency>
+    
+    <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+	<!-- <dependency>
+	    <groupId>org.apache.commons</groupId>
+	    <artifactId>commons-lang3</artifactId>
+	    <version>3.18.0</version>
+	</dependency> -->
+	
+	<!-- Java Server Pages (JSP)-->
+	<!-- https://mvnrepository.com/artifact/jakarta.servlet.jsp/jakarta.servlet.jsp-api -->
+	<dependency>
+	    <groupId>jakarta.servlet.jsp</groupId>
+	    <artifactId>jakarta.servlet.jsp-api</artifactId>
+	    <version>3.1.1</version>
+	    <scope>provided</scope>
+	</dependency> 
 
   </dependencies>
+  
+  
+  
 </project>

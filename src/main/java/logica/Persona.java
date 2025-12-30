@@ -82,11 +82,11 @@ public class Persona{
 		this.telefono = telefono;
 	}
 
-	public Date getfechaNacimiento() {
+	public Date getFechaNacimiento() {
 		return fecha_nacimiento;
 	}
 
-	public void setfechaNacimiento(Date fecha_nacimiento) {
+	public void setFechaNacimiento(Date fecha_nacimiento) {
 		this.fecha_nacimiento = fecha_nacimiento;
 	}
 
