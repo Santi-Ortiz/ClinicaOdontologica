@@ -1,8 +1,8 @@
-package persistencia;
+package com.clinica.persistence;
 
 import java.util.List;
 
-import logica.Odontologo;
+import com.clinica.model.Odontologo;
 
 public class OdontologoPersistencia {
 

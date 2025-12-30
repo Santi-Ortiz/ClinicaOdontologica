@@ -16,6 +16,9 @@
         <welcome-file>default.jsp</welcome-file>
     </welcome-file-list>
 
+	<!-- Filtros utilizados para redirigir todas las peticiones a Struts -->
+	<!-- Tomcat envía todas las peticiones a Struts-->
+	
     <filter>
 	    <filter-name>struts2</filter-name>
 	    <filter-class>org.apache.struts2.dispatcher.filter.StrutsPrepareAndExecuteFilter</filter-class>

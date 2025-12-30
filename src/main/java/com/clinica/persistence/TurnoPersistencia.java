@@ -1,8 +1,8 @@
-package persistencia;
+package com.clinica.persistence;
 
 import java.util.List;
 
-import logica.Turno;
+import com.clinica.model.Turno;
 
 public class TurnoPersistencia {
 

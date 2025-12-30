@@ -1,23 +1,22 @@
-package persistencia;
+package com.clinica.persistence;
 
 import java.util.List;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaQuery;
 
-import logica.Turno;
+import com.clinica.model.Odontologo;
 
-public class TurnoJpaController {
-	
+public class OdontologoJpaController {
+
 	private EntityManagerFactory emf = null;
 
-    public TurnoJpaController(EntityManagerFactory emf) {
+    public OdontologoJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
    
-    public TurnoJpaController() {
+    public OdontologoJpaController() {
     	emf = Persistence.createEntityManagerFactory("ClinicaOdontologica_PU");
     }
 
@@ -26,12 +25,12 @@ public class TurnoJpaController {
     }
 
     // Crear (Insertar)
-    public void create(Turno Turno) {
+    public void create(Odontologo odontologo) {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            em.persist(Turno);
+            em.persist(odontologo);
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -41,29 +40,29 @@ public class TurnoJpaController {
     }
 
     // Leer (Encontrar por ID)
-    public Turno findTurno(Long id) {
+    public Odontologo findOdontologo(Long id) {
         EntityManager em = getEntityManager();
         try {
-            return em.find(Turno.class, id);
+            return em.find(Odontologo.class, id);
         } finally {
             em.close();
         }
     }
 
     // Leer (Encontrar TODOS)
-    public List<Turno> findTurnoEntities() {
-        return findTurnoEntities(true, -1, -1);
+    public List<Odontologo> findOdontologoEntities() {
+        return findOdontologoEntities(true, -1, -1);
     }
 
-    public List<Turno> findTurnoEntities(int maxResults, int firstResult) {
-        return findTurnoEntities(false, maxResults, firstResult);
+    public List<Odontologo> findOdontologoEntities(int maxResults, int firstResult) {
+        return findOdontologoEntities(false, maxResults, firstResult);
     }
 
-    private List<Turno> findTurnoEntities(boolean all, int maxResults, int firstResult) {
+    private List<Odontologo> findOdontologoEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
-            CriteriaQuery<Turno> cq = em.getCriteriaBuilder().createQuery(Turno.class);
-            cq.select(cq.from(Turno.class));
+            CriteriaQuery<Odontologo> cq = em.getCriteriaBuilder().createQuery(Odontologo.class);
+            cq.select(cq.from(Odontologo.class));
             javax.persistence.Query q = em.createQuery(cq);
             if (!all) {
                 q.setMaxResults(maxResults);
@@ -76,16 +75,16 @@ public class TurnoJpaController {
     }
 
     // Actualizar (Editar)
-    public void edit(Turno Turno) throws Exception {
+    public void edit(Odontologo odontologo) throws Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            Turno = em.merge(Turno);
+            odontologo = em.merge(odontologo);
             em.getTransaction().commit();
         } catch (Exception ex) {
-            if (findTurno(Turno.getTurnoId()) == null) {
-                throw new Exception("El Turno con id " + Turno.getTurnoId() + " no existe.");
+            if (findOdontologo(odontologo.getPersonaId()) == null) {
+                throw new Exception("La odontologo con id " + odontologo.getPersonaId() + " no existe.");
             }
             throw ex;
         } finally {
@@ -101,14 +100,14 @@ public class TurnoJpaController {
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            Turno Turno;
+            Odontologo odontologo;
             try {
-                Turno = em.getReference(Turno.class, id);
-                Turno.getTurnoId();
+                odontologo = em.getReference(Odontologo.class, id);
+                odontologo.getPersonaId();
             } catch (Exception ex) {
-                throw new Exception("El Turno con id " + id + " no existe.", ex);
+                throw new Exception("La odontologo con id " + id + " no existe.", ex);
             }
-            em.remove(Turno);
+            em.remove(odontologo);
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -116,5 +115,4 @@ public class TurnoJpaController {
             }
         }
     }
-
 }

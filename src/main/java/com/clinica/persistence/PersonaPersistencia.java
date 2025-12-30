@@ -1,11 +1,11 @@
-package persistencia;
+package com.clinica.persistence;
 
 import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import logica.Persona;
+import com.clinica.model.Persona;
 
 public class PersonaPersistencia {
 

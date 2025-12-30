@@ -1,4 +1,4 @@
-package persistencia;
+package com.clinica.persistence;
 
 import java.util.List;
 
@@ -7,17 +7,17 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaQuery;
 
-import logica.Responsable;
+import com.clinica.model.Turno;
 
-public class ResponsableJpaController {
-
+public class TurnoJpaController {
+	
 	private EntityManagerFactory emf = null;
 
-    public ResponsableJpaController(EntityManagerFactory emf) {
+    public TurnoJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
    
-    public ResponsableJpaController() {
+    public TurnoJpaController() {
     	emf = Persistence.createEntityManagerFactory("ClinicaOdontologica_PU");
     }
 
@@ -26,12 +26,12 @@ public class ResponsableJpaController {
     }
 
     // Crear (Insertar)
-    public void create(Responsable responsable) {
+    public void create(Turno Turno) {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            em.persist(responsable);
+            em.persist(Turno);
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -41,29 +41,29 @@ public class ResponsableJpaController {
     }
 
     // Leer (Encontrar por ID)
-    public Responsable findResponsable(Long id) {
+    public Turno findTurno(Long id) {
         EntityManager em = getEntityManager();
         try {
-            return em.find(Responsable.class, id);
+            return em.find(Turno.class, id);
         } finally {
             em.close();
         }
     }
 
     // Leer (Encontrar TODOS)
-    public List<Responsable> findResponsableEntities() {
-        return findResponsableEntities(true, -1, -1);
+    public List<Turno> findTurnoEntities() {
+        return findTurnoEntities(true, -1, -1);
     }
 
-    public List<Responsable> findResponsableEntities(int maxResults, int firstResult) {
-        return findResponsableEntities(false, maxResults, firstResult);
+    public List<Turno> findTurnoEntities(int maxResults, int firstResult) {
+        return findTurnoEntities(false, maxResults, firstResult);
     }
 
-    private List<Responsable> findResponsableEntities(boolean all, int maxResults, int firstResult) {
+    private List<Turno> findTurnoEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
-            CriteriaQuery<Responsable> cq = em.getCriteriaBuilder().createQuery(Responsable.class);
-            cq.select(cq.from(Responsable.class));
+            CriteriaQuery<Turno> cq = em.getCriteriaBuilder().createQuery(Turno.class);
+            cq.select(cq.from(Turno.class));
             javax.persistence.Query q = em.createQuery(cq);
             if (!all) {
                 q.setMaxResults(maxResults);
@@ -76,16 +76,16 @@ public class ResponsableJpaController {
     }
 
     // Actualizar (Editar)
-    public void edit(Responsable responsable) throws Exception {
+    public void edit(Turno Turno) throws Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            responsable = em.merge(responsable);
+            Turno = em.merge(Turno);
             em.getTransaction().commit();
         } catch (Exception ex) {
-            if (findResponsable(responsable.getPersonaId()) == null) {
-                throw new Exception("La responsable con id " + responsable.getPersonaId() + " no existe.");
+            if (findTurno(Turno.getTurnoId()) == null) {
+                throw new Exception("El Turno con id " + Turno.getTurnoId() + " no existe.");
             }
             throw ex;
         } finally {
@@ -101,14 +101,14 @@ public class ResponsableJpaController {
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            Responsable responsable;
+            Turno Turno;
             try {
-                responsable = em.getReference(Responsable.class, id);
-                responsable.getPersonaId();
+                Turno = em.getReference(Turno.class, id);
+                Turno.getTurnoId();
             } catch (Exception ex) {
-                throw new Exception("El responsable con id " + id + " no existe.", ex);
+                throw new Exception("El Turno con id " + id + " no existe.", ex);
             }
-            em.remove(responsable);
+            em.remove(Turno);
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -116,4 +116,5 @@ public class ResponsableJpaController {
             }
         }
     }
+
 }

@@ -1,4 +1,4 @@
-package persistencia;
+package com.clinica.persistence;
 
 import java.util.List;
 
@@ -7,17 +7,17 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaQuery;
 
-import logica.Especialidad;
+import com.clinica.model.Horario;
 
-public class EspecialidadJpaController {
-	
+public class HorarioJpaController {
+
 	private EntityManagerFactory emf = null;
 
-    public EspecialidadJpaController(EntityManagerFactory emf) {
+    public HorarioJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
    
-    public EspecialidadJpaController() {
+    public HorarioJpaController() {
     	emf = Persistence.createEntityManagerFactory("ClinicaOdontologica_PU");
     }
 
@@ -26,12 +26,12 @@ public class EspecialidadJpaController {
     }
 
     // Crear (Insertar)
-    public void create(Especialidad especialidad) {
+    public void create(Horario horario) {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            em.persist(especialidad);
+            em.persist(horario);
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -41,29 +41,29 @@ public class EspecialidadJpaController {
     }
 
     // Leer (Encontrar por ID)
-    public Especialidad findEspecialidad(Long id) {
+    public Horario findHorario(Long id) {
         EntityManager em = getEntityManager();
         try {
-            return em.find(Especialidad.class, id);
+            return em.find(Horario.class, id);
         } finally {
             em.close();
         }
     }
 
     // Leer (Encontrar TODOS)
-    public List<Especialidad> findEspecialidadEntities() {
-        return findEspecialidadEntities(true, -1, -1);
+    public List<Horario> findHorarioEntities() {
+        return findHorarioEntities(true, -1, -1);
     }
 
-    public List<Especialidad> findEspecialidadEntities(int maxResults, int firstResult) {
-        return findEspecialidadEntities(false, maxResults, firstResult);
+    public List<Horario> findHorarioEntities(int maxResults, int firstResult) {
+        return findHorarioEntities(false, maxResults, firstResult);
     }
 
-    private List<Especialidad> findEspecialidadEntities(boolean all, int maxResults, int firstResult) {
+    private List<Horario> findHorarioEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
-            CriteriaQuery<Especialidad> cq = em.getCriteriaBuilder().createQuery(Especialidad.class);
-            cq.select(cq.from(Especialidad.class));
+            CriteriaQuery<Horario> cq = em.getCriteriaBuilder().createQuery(Horario.class);
+            cq.select(cq.from(Horario.class));
             javax.persistence.Query q = em.createQuery(cq);
             if (!all) {
                 q.setMaxResults(maxResults);
@@ -76,16 +76,16 @@ public class EspecialidadJpaController {
     }
 
     // Actualizar (Editar)
-    public void edit(Especialidad especialidad) throws Exception {
+    public void edit(Horario horario) throws Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            especialidad = em.merge(especialidad);
+            horario = em.merge(horario);
             em.getTransaction().commit();
         } catch (Exception ex) {
-            if (findEspecialidad(especialidad.getEspecialidadId()) == null) {
-                throw new Exception("La especialidad con id " + especialidad.getEspecialidadId() + " no existe.");
+            if (findHorario(horario.getHorarioId()) == null) {
+                throw new Exception("La horario con id " + horario.getHorarioId() + " no existe.");
             }
             throw ex;
         } finally {
@@ -101,14 +101,14 @@ public class EspecialidadJpaController {
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            Especialidad especialidad;
+            Horario horario;
             try {
-                especialidad = em.getReference(Especialidad.class, id);
-                especialidad.getEspecialidadId();
+                horario = em.getReference(Horario.class, id);
+                horario.getHorarioId();
             } catch (Exception ex) {
-                throw new Exception("La especialidad con id " + id + " no existe.", ex);
+                throw new Exception("La horario con id " + id + " no existe.", ex);
             }
-            em.remove(especialidad);
+            em.remove(horario);
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -116,5 +116,4 @@ public class EspecialidadJpaController {
             }
         }
     }
-
 }

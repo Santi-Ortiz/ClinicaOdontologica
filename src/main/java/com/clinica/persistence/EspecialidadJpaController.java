@@ -1,21 +1,23 @@
-package persistencia;
+package com.clinica.persistence;
 
 import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaQuery;
-import logica.Persona;
 
-public class PersonaJpaController{
+import com.clinica.model.Especialidad;
 
-    private EntityManagerFactory emf = null;
+public class EspecialidadJpaController {
+	
+	private EntityManagerFactory emf = null;
 
-    public PersonaJpaController(EntityManagerFactory emf) {
+    public EspecialidadJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
    
-    public PersonaJpaController() {
+    public EspecialidadJpaController() {
     	emf = Persistence.createEntityManagerFactory("ClinicaOdontologica_PU");
     }
 
@@ -24,12 +26,12 @@ public class PersonaJpaController{
     }
 
     // Crear (Insertar)
-    public void create(Persona persona) {
+    public void create(Especialidad especialidad) {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            em.persist(persona);
+            em.persist(especialidad);
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -39,29 +41,29 @@ public class PersonaJpaController{
     }
 
     // Leer (Encontrar por ID)
-    public Persona findPersona(Long id) {
+    public Especialidad findEspecialidad(Long id) {
         EntityManager em = getEntityManager();
         try {
-            return em.find(Persona.class, id);
+            return em.find(Especialidad.class, id);
         } finally {
             em.close();
         }
     }
 
     // Leer (Encontrar TODOS)
-    public List<Persona> findPersonaEntities() {
-        return findPersonaEntities(true, -1, -1);
+    public List<Especialidad> findEspecialidadEntities() {
+        return findEspecialidadEntities(true, -1, -1);
     }
 
-    public List<Persona> findPersonaEntities(int maxResults, int firstResult) {
-        return findPersonaEntities(false, maxResults, firstResult);
+    public List<Especialidad> findEspecialidadEntities(int maxResults, int firstResult) {
+        return findEspecialidadEntities(false, maxResults, firstResult);
     }
 
-    private List<Persona> findPersonaEntities(boolean all, int maxResults, int firstResult) {
+    private List<Especialidad> findEspecialidadEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
-            CriteriaQuery<Persona> cq = em.getCriteriaBuilder().createQuery(Persona.class);
-            cq.select(cq.from(Persona.class));
+            CriteriaQuery<Especialidad> cq = em.getCriteriaBuilder().createQuery(Especialidad.class);
+            cq.select(cq.from(Especialidad.class));
             javax.persistence.Query q = em.createQuery(cq);
             if (!all) {
                 q.setMaxResults(maxResults);
@@ -74,16 +76,16 @@ public class PersonaJpaController{
     }
 
     // Actualizar (Editar)
-    public void edit(Persona persona) throws Exception {
+    public void edit(Especialidad especialidad) throws Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            persona = em.merge(persona);
+            especialidad = em.merge(especialidad);
             em.getTransaction().commit();
         } catch (Exception ex) {
-            if (findPersona(persona.getPersonaId()) == null) {
-                throw new Exception("La persona con id " + persona.getPersonaId() + " no existe.");
+            if (findEspecialidad(especialidad.getEspecialidadId()) == null) {
+                throw new Exception("La especialidad con id " + especialidad.getEspecialidadId() + " no existe.");
             }
             throw ex;
         } finally {
@@ -99,14 +101,14 @@ public class PersonaJpaController{
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            Persona persona;
+            Especialidad especialidad;
             try {
-                persona = em.getReference(Persona.class, id);
-                persona.getPersonaId();
+                especialidad = em.getReference(Especialidad.class, id);
+                especialidad.getEspecialidadId();
             } catch (Exception ex) {
-                throw new Exception("La persona con id " + id + " no existe.", ex);
+                throw new Exception("La especialidad con id " + id + " no existe.", ex);
             }
-            em.remove(persona);
+            em.remove(especialidad);
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -114,4 +116,5 @@ public class PersonaJpaController{
             }
         }
     }
+
 }

@@ -1,15 +1,35 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html>
 <html>
-	<head>
+	<head>	
 		<meta charset="UTF-8">
 		<title>Clínica Odontológica</title>
 	</head>
 	
 	<body>
 		<h1> Registro de Personas</h1>
-		<form action="SvPersona" method="POST">
+		
+		<s:form action="personas/registro" method="POST">
+		
+			<s:textfield label="Número de Identificación" key="numero_identificacion"/>
+			
+			<s:textfield label="Nombre" key="nombre"/>
+			
+			<s:textfield label="Telefono" key="telefono"/>
+			
+			<s:textfield label="Fecha de Nacimiento" key="fecha_nacimiento"/>
+			
+			<s:submit />
+	
+		</s:form>
+		
+		
+		
+		
+		
+		<form action="personas/registro" method="POST">
 			<p>
 				<label>Número Identificacion: </label> 
 				<input type="text" name="numero_identificacion">

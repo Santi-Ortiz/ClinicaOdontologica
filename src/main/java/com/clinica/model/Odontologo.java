@@ -1,4 +1,4 @@
-package logica;
+package com.clinica.model;
 
 import java.util.List;
 

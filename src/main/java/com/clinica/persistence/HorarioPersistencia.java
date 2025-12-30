@@ -1,8 +1,8 @@
-package persistencia;
+package com.clinica.persistence;
 
 import java.util.List;
 
-import logica.Horario;
+import com.clinica.model.Horario;
 
 public class HorarioPersistencia {
 	

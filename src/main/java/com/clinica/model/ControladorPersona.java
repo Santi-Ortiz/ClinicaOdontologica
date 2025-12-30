@@ -1,9 +1,9 @@
-package logica;
+package com.clinica.model;
 
 import java.sql.SQLException;
 import java.util.List;
 
-import persistencia.PersonaPersistencia;
+import com.clinica.persistence.PersonaPersistencia;
 
 public class ControladorPersona {
 	

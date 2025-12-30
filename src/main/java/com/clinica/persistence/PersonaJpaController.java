@@ -1,23 +1,22 @@
-package persistencia;
+package com.clinica.persistence;
 
 import java.util.List;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaQuery;
 
-import logica.Horario;
+import com.clinica.model.Persona;
 
-public class HorarioJpaController {
+public class PersonaJpaController{
 
-	private EntityManagerFactory emf = null;
+    private EntityManagerFactory emf = null;
 
-    public HorarioJpaController(EntityManagerFactory emf) {
+    public PersonaJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
    
-    public HorarioJpaController() {
+    public PersonaJpaController() {
     	emf = Persistence.createEntityManagerFactory("ClinicaOdontologica_PU");
     }
 
@@ -26,12 +25,12 @@ public class HorarioJpaController {
     }
 
     // Crear (Insertar)
-    public void create(Horario horario) {
+    public void create(Persona persona) {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            em.persist(horario);
+            em.persist(persona);
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -41,29 +40,29 @@ public class HorarioJpaController {
     }
 
     // Leer (Encontrar por ID)
-    public Horario findHorario(Long id) {
+    public Persona findPersona(Long id) {
         EntityManager em = getEntityManager();
         try {
-            return em.find(Horario.class, id);
+            return em.find(Persona.class, id);
         } finally {
             em.close();
         }
     }
 
     // Leer (Encontrar TODOS)
-    public List<Horario> findHorarioEntities() {
-        return findHorarioEntities(true, -1, -1);
+    public List<Persona> findPersonaEntities() {
+        return findPersonaEntities(true, -1, -1);
     }
 
-    public List<Horario> findHorarioEntities(int maxResults, int firstResult) {
-        return findHorarioEntities(false, maxResults, firstResult);
+    public List<Persona> findPersonaEntities(int maxResults, int firstResult) {
+        return findPersonaEntities(false, maxResults, firstResult);
     }
 
-    private List<Horario> findHorarioEntities(boolean all, int maxResults, int firstResult) {
+    private List<Persona> findPersonaEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
-            CriteriaQuery<Horario> cq = em.getCriteriaBuilder().createQuery(Horario.class);
-            cq.select(cq.from(Horario.class));
+            CriteriaQuery<Persona> cq = em.getCriteriaBuilder().createQuery(Persona.class);
+            cq.select(cq.from(Persona.class));
             javax.persistence.Query q = em.createQuery(cq);
             if (!all) {
                 q.setMaxResults(maxResults);
@@ -76,16 +75,16 @@ public class HorarioJpaController {
     }
 
     // Actualizar (Editar)
-    public void edit(Horario horario) throws Exception {
+    public void edit(Persona persona) throws Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            horario = em.merge(horario);
+            persona = em.merge(persona);
             em.getTransaction().commit();
         } catch (Exception ex) {
-            if (findHorario(horario.getHorarioId()) == null) {
-                throw new Exception("La horario con id " + horario.getHorarioId() + " no existe.");
+            if (findPersona(persona.getPersonaId()) == null) {
+                throw new Exception("La persona con id " + persona.getPersonaId() + " no existe.");
             }
             throw ex;
         } finally {
@@ -101,14 +100,14 @@ public class HorarioJpaController {
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            Horario horario;
+            Persona persona;
             try {
-                horario = em.getReference(Horario.class, id);
-                horario.getHorarioId();
+                persona = em.getReference(Persona.class, id);
+                persona.getPersonaId();
             } catch (Exception ex) {
-                throw new Exception("La horario con id " + id + " no existe.", ex);
+                throw new Exception("La persona con id " + id + " no existe.", ex);
             }
-            em.remove(horario);
+            em.remove(persona);
             em.getTransaction().commit();
         } finally {
             if (em != null) {

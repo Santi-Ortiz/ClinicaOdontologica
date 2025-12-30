@@ -6,8 +6,8 @@
 
     <constant name="struts.devMode" value="true" />
 
-    <package name="default" extends="struts-default">
-        <action name="index" class="servelts.SvPersona">
+    <package name="default" namespace="/personas" extends="struts-default">
+        <action name="registro" class="com.clinica.action.PersonaAction">
             <result>/index.jsp</result>
         </action>
     </package>

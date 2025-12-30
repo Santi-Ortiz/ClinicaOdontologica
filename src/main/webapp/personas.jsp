@@ -11,7 +11,7 @@
 <body>
     <h1>Página Principal de Personas</h1>
     
-    <% 
+    <!--  <% 
         List<Persona> personas = (List<Persona>) request.getSession().getAttribute("personas");
         if (personas != null) {
     %>
@@ -28,6 +28,6 @@
         <% } %>
         </ul>
         
-    <%  } %>
+    <%  } %>  -->
 </body>
 </html>
