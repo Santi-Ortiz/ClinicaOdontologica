@@ -7,8 +7,8 @@
     <constant name="struts.devMode" value="true" />
 
     <package name="default" extends="struts-default">
-        <action name="index" class="servelts.TestAction">
-            <result>/test.jsp</result>
+        <action name="index" class="servelts.SvPersona">
+            <result>/index.jsp</result>
         </action>
     </package>
 
