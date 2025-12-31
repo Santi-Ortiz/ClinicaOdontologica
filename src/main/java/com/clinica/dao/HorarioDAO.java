@@ -1,10 +1,11 @@
-package com.clinica.persistence;
+package com.clinica.dao;
 
 import java.util.List;
 
+import com.clinica.dao.jpa.HorarioJpaController;
 import com.clinica.model.Horario;
 
-public class HorarioPersistencia {
+public class HorarioDAO {
 	
 	HorarioJpaController horarioJPAController = new HorarioJpaController();
 	

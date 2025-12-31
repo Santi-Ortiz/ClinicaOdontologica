@@ -1,4 +1,4 @@
-package com.clinica.persistence;
+package com.clinica.dao.jpa;
 
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -6,17 +6,17 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaQuery;
 
-import com.clinica.model.Paciente;
+import com.clinica.model.Persona;
 
-public class PacienteJpaController {
+public class PersonaJpaController{
 
-	private EntityManagerFactory emf = null;
+    private EntityManagerFactory emf = null;
 
-    public PacienteJpaController(EntityManagerFactory emf) {
+    public PersonaJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
    
-    public PacienteJpaController() {
+    public PersonaJpaController() {
     	emf = Persistence.createEntityManagerFactory("ClinicaOdontologica_PU");
     }
 
@@ -25,12 +25,12 @@ public class PacienteJpaController {
     }
 
     // Crear (Insertar)
-    public void create(Paciente paciente) {
+    public void create(Persona persona) {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            em.persist(paciente);
+            em.persist(persona);
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -40,29 +40,29 @@ public class PacienteJpaController {
     }
 
     // Leer (Encontrar por ID)
-    public Paciente findPaciente(Long id) {
+    public Persona findPersona(Long id) {
         EntityManager em = getEntityManager();
         try {
-            return em.find(Paciente.class, id);
+            return em.find(Persona.class, id);
         } finally {
             em.close();
         }
     }
 
     // Leer (Encontrar TODOS)
-    public List<Paciente> findPacienteEntities() {
-        return findPacienteEntities(true, -1, -1);
+    public List<Persona> findPersonaEntities() {
+        return findPersonaEntities(true, -1, -1);
     }
 
-    public List<Paciente> findPacienteEntities(int maxResults, int firstResult) {
-        return findPacienteEntities(false, maxResults, firstResult);
+    public List<Persona> findPersonaEntities(int maxResults, int firstResult) {
+        return findPersonaEntities(false, maxResults, firstResult);
     }
 
-    private List<Paciente> findPacienteEntities(boolean all, int maxResults, int firstResult) {
+    private List<Persona> findPersonaEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
-            CriteriaQuery<Paciente> cq = em.getCriteriaBuilder().createQuery(Paciente.class);
-            cq.select(cq.from(Paciente.class));
+            CriteriaQuery<Persona> cq = em.getCriteriaBuilder().createQuery(Persona.class);
+            cq.select(cq.from(Persona.class));
             javax.persistence.Query q = em.createQuery(cq);
             if (!all) {
                 q.setMaxResults(maxResults);
@@ -75,16 +75,16 @@ public class PacienteJpaController {
     }
 
     // Actualizar (Editar)
-    public void edit(Paciente paciente) throws Exception {
+    public void edit(Persona persona) throws Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            paciente = em.merge(paciente);
+            persona = em.merge(persona);
             em.getTransaction().commit();
         } catch (Exception ex) {
-            if (findPaciente(paciente.getPersonaId()) == null) {
-                throw new Exception("La paciente con id " + paciente.getPersonaId() + " no existe.");
+            if (findPersona(persona.getPersonaId()) == null) {
+                throw new Exception("La persona con id " + persona.getPersonaId() + " no existe.");
             }
             throw ex;
         } finally {
@@ -100,14 +100,14 @@ public class PacienteJpaController {
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            Paciente paciente;
+            Persona persona;
             try {
-                paciente = em.getReference(Paciente.class, id);
-                paciente.getPersonaId();
+                persona = em.getReference(Persona.class, id);
+                persona.getPersonaId();
             } catch (Exception ex) {
-                throw new Exception("La paciente con id " + id + " no existe.", ex);
+                throw new Exception("La persona con id " + id + " no existe.", ex);
             }
-            em.remove(paciente);
+            em.remove(persona);
             em.getTransaction().commit();
         } finally {
             if (em != null) {

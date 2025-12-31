@@ -1,10 +1,11 @@
-package com.clinica.persistence;
+package com.clinica.dao;
 
 import java.util.List;
 
+import com.clinica.dao.jpa.OdontologoJpaController;
 import com.clinica.model.Odontologo;
 
-public class OdontologoPersistencia {
+public class OdontologoDAO {
 
 	OdontologoJpaController odontologoJPAController = new OdontologoJpaController();
 	

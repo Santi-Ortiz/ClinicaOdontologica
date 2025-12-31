@@ -1,17 +1,18 @@
-package com.clinica.persistence;
+package com.clinica.dao;
 
 import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.clinica.dao.jpa.EspecialidadJpaController;
 import com.clinica.model.Especialidad;
 
-public class EspecialidadPersistencia {
+public class EspecialidadDAO {
 	
 	EspecialidadJpaController especialidadJPAController = new EspecialidadJpaController();
 	
-	public static final Logger logger = LoggerFactory.getLogger(EspecialidadPersistencia.class);
+	public static final Logger logger = LoggerFactory.getLogger(EspecialidadDAO.class);
 	
 	public void crearEspecialidad(Especialidad especialidad) {
 		especialidadJPAController.create(especialidad);

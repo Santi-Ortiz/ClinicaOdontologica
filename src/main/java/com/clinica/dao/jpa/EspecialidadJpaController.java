@@ -1,4 +1,4 @@
-package com.clinica.persistence;
+package com.clinica.dao.jpa;
 
 import java.util.List;
 

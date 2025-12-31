@@ -1,10 +1,11 @@
-package com.clinica.persistence;
+package com.clinica.dao;
 
 import java.util.List;
 
+import com.clinica.dao.jpa.ResponsableJpaController;
 import com.clinica.model.Responsable;
 
-public class PersistenciaResponsable {
+public class PersistenciaDAO {
 	
 	ResponsableJpaController responsableJPAController = new ResponsableJpaController();
 	

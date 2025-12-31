@@ -1,10 +1,11 @@
-package com.clinica.persistence;
+package com.clinica.dao;
 
 import java.util.List;
 
+import com.clinica.dao.jpa.TurnoJpaController;
 import com.clinica.model.Turno;
 
-public class TurnoPersistencia {
+public class TurnoDAO {
 
 	TurnoJpaController turnoJPAController = new TurnoJpaController();
 	

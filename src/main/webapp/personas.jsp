@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <%@ page import= "java.util.ArrayList" %>
 <%@ page import= "java.util.List" %>
-<%@ page import= "logica.Persona" %>
+<%@ page import= "com.clinica.model.Persona" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,6 +11,10 @@
 </head>
 <body>
     <h1>Página Principal de Personas</h1>
+    
+    
+    
+    
     
     <!--  <% 
         List<Persona> personas = (List<Persona>) request.getSession().getAttribute("personas");

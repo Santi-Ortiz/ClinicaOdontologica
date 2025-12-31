@@ -1,23 +1,22 @@
-package com.clinica.persistence;
+package com.clinica.dao.jpa;
 
 import java.util.List;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.criteria.CriteriaQuery;
 
-import com.clinica.model.Responsable;
+import com.clinica.model.Odontologo;
 
-public class ResponsableJpaController {
+public class OdontologoJpaController {
 
 	private EntityManagerFactory emf = null;
 
-    public ResponsableJpaController(EntityManagerFactory emf) {
+    public OdontologoJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
    
-    public ResponsableJpaController() {
+    public OdontologoJpaController() {
     	emf = Persistence.createEntityManagerFactory("ClinicaOdontologica_PU");
     }
 
@@ -26,12 +25,12 @@ public class ResponsableJpaController {
     }
 
     // Crear (Insertar)
-    public void create(Responsable responsable) {
+    public void create(Odontologo odontologo) {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            em.persist(responsable);
+            em.persist(odontologo);
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -41,29 +40,29 @@ public class ResponsableJpaController {
     }
 
     // Leer (Encontrar por ID)
-    public Responsable findResponsable(Long id) {
+    public Odontologo findOdontologo(Long id) {
         EntityManager em = getEntityManager();
         try {
-            return em.find(Responsable.class, id);
+            return em.find(Odontologo.class, id);
         } finally {
             em.close();
         }
     }
 
     // Leer (Encontrar TODOS)
-    public List<Responsable> findResponsableEntities() {
-        return findResponsableEntities(true, -1, -1);
+    public List<Odontologo> findOdontologoEntities() {
+        return findOdontologoEntities(true, -1, -1);
     }
 
-    public List<Responsable> findResponsableEntities(int maxResults, int firstResult) {
-        return findResponsableEntities(false, maxResults, firstResult);
+    public List<Odontologo> findOdontologoEntities(int maxResults, int firstResult) {
+        return findOdontologoEntities(false, maxResults, firstResult);
     }
 
-    private List<Responsable> findResponsableEntities(boolean all, int maxResults, int firstResult) {
+    private List<Odontologo> findOdontologoEntities(boolean all, int maxResults, int firstResult) {
         EntityManager em = getEntityManager();
         try {
-            CriteriaQuery<Responsable> cq = em.getCriteriaBuilder().createQuery(Responsable.class);
-            cq.select(cq.from(Responsable.class));
+            CriteriaQuery<Odontologo> cq = em.getCriteriaBuilder().createQuery(Odontologo.class);
+            cq.select(cq.from(Odontologo.class));
             javax.persistence.Query q = em.createQuery(cq);
             if (!all) {
                 q.setMaxResults(maxResults);
@@ -76,16 +75,16 @@ public class ResponsableJpaController {
     }
 
     // Actualizar (Editar)
-    public void edit(Responsable responsable) throws Exception {
+    public void edit(Odontologo odontologo) throws Exception {
         EntityManager em = null;
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            responsable = em.merge(responsable);
+            odontologo = em.merge(odontologo);
             em.getTransaction().commit();
         } catch (Exception ex) {
-            if (findResponsable(responsable.getPersonaId()) == null) {
-                throw new Exception("La responsable con id " + responsable.getPersonaId() + " no existe.");
+            if (findOdontologo(odontologo.getPersonaId()) == null) {
+                throw new Exception("La odontologo con id " + odontologo.getPersonaId() + " no existe.");
             }
             throw ex;
         } finally {
@@ -101,14 +100,14 @@ public class ResponsableJpaController {
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            Responsable responsable;
+            Odontologo odontologo;
             try {
-                responsable = em.getReference(Responsable.class, id);
-                responsable.getPersonaId();
+                odontologo = em.getReference(Odontologo.class, id);
+                odontologo.getPersonaId();
             } catch (Exception ex) {
-                throw new Exception("El responsable con id " + id + " no existe.", ex);
+                throw new Exception("La odontologo con id " + id + " no existe.", ex);
             }
-            em.remove(responsable);
+            em.remove(odontologo);
             em.getTransaction().commit();
         } finally {
             if (em != null) {

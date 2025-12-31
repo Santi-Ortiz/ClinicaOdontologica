@@ -1,51 +1,43 @@
 package com.clinica.service;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.clinica.dao.PersonaDAO;
+import com.clinica.dao.jpa.PersonaJpaController;
 import com.clinica.model.Persona;
-import com.clinica.persistence.PersonaJpaController;
-import com.clinica.persistence.PersonaPersistencia;
 
 public class PersonaService {
 	
-	private static Logger logger = LoggerFactory.getLogger(PersonaPersistencia.class);
-	
-	PersonaJpaController personaJPAController = new PersonaJpaController();
+	private static Logger logger = LoggerFactory.getLogger(PersonaDAO.class);
+
+	PersonaDAO personaDAO = new PersonaDAO();
 	
 	public PersonaService() {
 		
 	}
 	
-	public void crearPersona(Persona persona) {
-		personaJPAController.create(persona);
-		logger.atInfo().log("La persona {} fue creada correctamente ", persona);
+	public void crearPersona(Persona persona) throws SQLException {
+		personaDAO.crearPersona(persona);
 	}
-
-	public List<Persona> obtenerPersonas() {
-		List<Persona> personas = personaJPAController.findPersonaEntities();
-		logger.atInfo().log("Se encontraron las siguientes personas: {}.", personas);
-
-		return personas;
+	
+	public List<Persona> obtenerPersonas() throws SQLException {
+		return personaDAO.obtenerPersonas();
 	}
-
-	public Persona obtenerPersonaPorId(Long id) {
-		Persona persona = personaJPAController.findPersona(id);
-		logger.atInfo().log("Se encontro la siguiente persona: {}.", persona);
-
-		return persona;
+	
+	public Persona obtenerPersonaPorId(Long id) throws SQLException {
+		return personaDAO.obtenerPersonaPorId(id);
 	}
-
+	
 	public void actualizarPersona(Persona persona) throws Exception {
-		personaJPAController.edit(persona);
-		logger.atInfo().log("Se actualizo la persona: {}.", persona);
+		personaDAO.actualizarPersona(persona);
 	}
-
-	public void eliminarPersona(Long id) throws Exception {
-		personaJPAController.destroy(id);
-		logger.atInfo().log("Se elimino la persona con id: {}.", id);
+	
+	public void eliminarPersona(Long id) throws Exception{
+		personaDAO.eliminarPersona(id);
 	}
 
 }
