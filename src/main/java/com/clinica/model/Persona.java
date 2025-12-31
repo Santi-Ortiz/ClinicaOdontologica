@@ -54,7 +54,7 @@ public class Persona{
 		return persona_id;
 	}
 
-	public void setPersonaId(Long persona_id) {
+	public void setPwersonaId(Long persona_id) {
 		this.persona_id = persona_id;
 	}
 	

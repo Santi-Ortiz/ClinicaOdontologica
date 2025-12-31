@@ -10,29 +10,26 @@
     <title>Pagina de Personas</title>
 </head>
 <body>
-    <h1>Página Principal de Personas</h1>
+    <h1>PERSONAS CREADAS</h1>
     
-    
-    
-    
-    
-    <!--  <% 
-        List<Persona> personas = (List<Persona>) request.getSession().getAttribute("personas");
-        if (personas != null) {
-    %>
-    
+    <s:if test="personas != null">
         <ul>
-        <% for (Persona persona : personas) { %>
-            <li> 
-	            Identificacion: <%= persona.getNumeroIdentificacion() %> <br>
-	            Nombre: <%= persona.getNombre() %> <br>
-	            Telefono: <%= persona.getTelefono() %> <br>
-	            Fecha Nacimiento: <%= persona.getFechaNacimiento() %> <br>
-	            <hr>
-            </li>
-        <% } %>
+            <s:iterator value="personas" var="persona">
+                <li>
+                	Persona Id: <s:property value="#persona.personaId"/> <br>
+                    Número Identificación: <s:property value="#persona.numeroIdentificacion"/> <br>
+                    Nombre: <s:property value="#persona.nombre"/> <br>
+                    Telefono: <s:property value="#persona.telefono"/> <br>
+                    Fecha Nacimiento: <s:property value="#persona.fechaNacimiento"/> <br>
+                    <hr>
+                </li>
+            </s:iterator>
         </ul>
-        
-    <%  } %>  -->
+    </s:if>
+    
+    
+	<s:form action="index">
+		<s:submit value="Volver a Inicio"></s:submit>
+	</s:form>
 </body>
 </html>
