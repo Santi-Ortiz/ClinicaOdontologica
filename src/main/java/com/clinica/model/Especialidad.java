@@ -52,7 +52,7 @@ public class Especialidad {
 
 	@Override
 	public String toString() {
-		return "Especialidad -> { \n especialidadId: " + especialidad_id + ", \n especialidad: " + especialidad + "";
+		return "Especialidad -> { \n especialidadId: " + especialidad_id + ", \n especialidad: " + especialidad;
 	}
 	
 }

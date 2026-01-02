@@ -7,14 +7,14 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import com.clinica.model.Persona;
 
 public class PersonaAction extends ActionSupport{
 	
-	private static final Logger logger = LoggerFactory.getLogger(PersonaAction.class);
+	private static final Logger logger = LogManager.getLogger(PersonaAction.class);
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -40,10 +40,10 @@ public class PersonaAction extends ActionSupport{
 		try {
 			personaService.crearPersona(persona);
 		} catch(SQLException e) {
-			logger.atError().log("Excepción de SQL: " + e);
+			logger.error("Excepción de SQL: " + e);
 			return ERROR;
 		} catch(Exception e) {
-			logger.atError().log("Error (LOG): " + e);
+			logger.error("Error (LOG): " + e);
 			return ERROR;
 		}
 		
@@ -56,10 +56,10 @@ public class PersonaAction extends ActionSupport{
 		try {
 			personas = personaService.obtenerPersonas();
 		} catch(SQLException e) {
-			logger.atError().log("Excepción de SQL (LOG): " + e);
+			logger.error("Excepción de SQL (LOG): " + e);
 			return ERROR;
 		} catch(Exception e) {
-			logger.atError().log("Error (LOG): " + e);
+			logger.error("Error (LOG): " + e);
 			return ERROR;
 		}
 		
@@ -71,10 +71,10 @@ public class PersonaAction extends ActionSupport{
 		try {
 			persona = personaService.obtenerPersonaPorId(persona_id);
 		} catch(SQLException e) {
-			logger.atError().log("Excepción de SQL (LOG): " + e);
+			logger.error("Excepción de SQL (LOG): " + e);
 			return ERROR;
 		} catch(Exception e) {
-			logger.atError().log("Error (LOG): " + e);
+			logger.error("Error (LOG): " + e);
 			return ERROR;
 		}
 		
@@ -86,10 +86,10 @@ public class PersonaAction extends ActionSupport{
 		try {
 			personaService.actualizarPersona(persona);
 		} catch(SQLException e) {
-			logger.atError().log("Excepción de SQL (LOG): " + e);
+			logger.error("Excepción de SQL (LOG): " + e);
 			return ERROR;
 		} catch(Exception e) {
-			logger.atError().log("Error (LOG): " + e);
+			logger.error("Error (LOG): " + e);
 			return ERROR;
 		}
 		
@@ -101,10 +101,10 @@ public class PersonaAction extends ActionSupport{
 		try {
 			personaService.eliminarPersona(persona_id);
 		} catch(SQLException e) {
-			logger.atError().log("Excepción de SQL (LOG): " + e);
+			logger.error("Excepción de SQL (LOG): " + e);
 			return ERROR;
 		} catch(Exception e) {
-			logger.atError().log("Error (LOG): " + e);
+			logger.error("Error (LOG): " + e);
 			return ERROR;
 		}
 		

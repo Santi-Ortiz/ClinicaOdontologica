@@ -1,28 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration xmlns="https://logging.apache.org/xml/ns"
-               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-               xsi:schemaLocation="
-                   https://logging.apache.org/xml/ns
-                   https://logging.apache.org/xml/ns/log4j-config-2.xsd">
-  <Appenders>
-    <Console name="CONSOLE">
-      <PatternLayout pattern="%p - %m%n"/>
-    </Console>
-    <File name="MAIN" fileName="logs/main.log">
-      <JsonTemplateLayout/>
-    </File>
-    <File name="DEBUG_LOG" fileName="logs/debug.log">
-      <PatternLayout pattern="%d [%t] %p %c - %m%n"/>
-    </File>
-  </Appenders>
-  <Loggers>
-    <Root level="INFO">
-      <AppenderRef ref="CONSOLE" level="WARN"/>
-      <AppenderRef ref="MAIN"/>
-    </Root>
-    <Logger name="org.example" level="DEBUG">
-      <AppenderRef ref="DEBUG_LOG"/>
-    </Logger>
-    <Logger name="org.apache.struts2" level="DEBUG"/>
-  </Loggers>
+<Configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="https://logging.apache.org/xml/ns"
+	xsi:schemaLocation="https://logging.apache.org/xml/ns https://logging.apache.org/xml/ns/log4j-config-2.xsd">
+
+	<!-- Variables de Entorno-->
+	<Properties>
+		<Property name="filepath" value="logs" />
+		<Property name="filename" value="main" />
+		<Property name="maxFileSize" value="100MB" />
+	</Properties>
+
+	<!-- Appenders: Responsables de escribir logs en un objetivo particular
+	(consola, archivo, etc.)-->
+	<Appenders>
+		<!-- Layouts: Le dicen al Appender cómo se estructura el evento de log
+		(JSON, XML, Consola, etc.)-->
+
+		<!-- Se escriben logs en archivo .log-->
+		<RollingFile name="main-file"
+			fileName="${filepath}/${filename}.log"
+			filePattern="${filepath}/${filename}.log">
+
+			<PatternLayout
+				pattern="%d{HH-mm-ss-SSS} [%t] %-5level %logger{36} - %msg%n" />
+
+			<!--Se resetea el archivo de log cuando supere el tamaño estipulado-->
+			<SizeBasedTriggeringPolicy size="${maxFileSize}" />
+		</RollingFile>
+
+		<!--<File name="main-file" fileName="${filepath}/${filename}.log">
+			<PatternLayout pattern="%d{HH-mm-ss-SSS} [%t] %-5level %logger{36} - %msg%n"/>
+		</File>-->
+
+		<!-- Se imprimen logs en la consola, con el layout Console-->
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout
+				pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+		</Console>
+
+	</Appenders>
+
+	<!-- Loggers: Definen el alcance y nivel de mensajes de logs (INFO, WARN,
+	ERROR, DEBUG, ect.)-->
+	<Loggers>
+
+		<Logger name="log1" level="INFO">
+			<AppenderRef ref="Console" />
+			<AppenderRef ref="main-file" />
+		</Logger>
+
+		<!-- Se define el Logger Root con un nivel de Info-->
+		<Root level="INFO">
+			<AppenderRef ref="Console" />
+			<AppenderRef ref="main-file" />
+		</Root>
+
+	</Loggers>
+
 </Configuration>
