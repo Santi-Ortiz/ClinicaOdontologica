@@ -2,21 +2,42 @@
 <!DOCTYPE tiles-definitions PUBLIC
        "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
        "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
-	
-	
+       
 <tiles-definitions>
 
 	<!-- Plantilla (layout) principal -->
-	<definition name="mainLayout" template="/jsp/layout/MainLayout.jsp">
+	<definition name="main-layout" template="/jsp/layout/main-layout.jsp">
 		<put-attribute name="title" value="/jsp/layout/title.jsp" />
 		<put-attribute name="header" value="/jsp/layout/header.jsp" />
 		<put-attribute name="nav" value="/jsp/layout/nav.jsp"/>
 		<put-attribute name="body" value="/jsp/layout/body.jsp" />
 	</definition>
 	
-	<!-- Reutilización de mainlayout-->
-    <definition name="home.tiles" extends="mainLayout">
-        <put-attribute name="body" value="/jsp/layout/home.jsp"/>
+	<!-- Reutilización de mainlayout para Persona-->
+    <definition name="persona.landing" extends="main-layout">
+        <put-attribute name="header" value="/jsp/TemplatePersona/header-persona.jsp" />
+        <put-attribute name="nav" value="/jsp/TemplatePersona/nav-persona.jsp"/>
+        <put-attribute name="body" value="/jsp/TemplatePersona/body-persona.jsp"/>
+    </definition>
+    
+    <!-- Reutilización para formulario de Registro -->
+    <definition name="persona.registro" extends="main-layout">
+    	<put-attribute name="body" value="/jsp/registro.jsp"></put-attribute>
+    </definition>
+    
+    <!-- Reutilización para mostrar todas las personas -->
+    <definition name="persona.listar" extends="main-layout">
+    	<put-attribute name="body" value="/jsp/personas.jsp" />
+    </definition>
+    
+  	<!-- Página de acción correcta -->
+    <definition name="persona.success">
+    	<put-attribute name="success" value="/jsp/success.jsp" />
+    </definition>
+    
+    <!-- Página de error -->
+    <definition name="persona.error">
+    	<put-attribute name="error" value="/jsp/error.jsp" />
     </definition>
 
 </tiles-definitions>

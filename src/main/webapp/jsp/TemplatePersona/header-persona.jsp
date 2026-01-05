@@ -3,10 +3,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+	<meta charset="UTF-8">
+	<title></title>
 </head>
-<body>
-
-</body>
+	<body>
+		<h1 align="center">Bienvenido a Clinica Odontologica</h1>
+	
+	</body>
 </html>
