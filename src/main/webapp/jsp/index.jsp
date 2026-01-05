@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
+
 <!DOCTYPE html>
 <html>
 	<head>	
@@ -9,9 +10,22 @@
 	</head>
 	
 	<body>
-		<h1> Bienvenido a Clinica Odontologica</h1>
+		
+		<tiles:insertTemplate template="main-layout">
+		
+			<tiles:putAttribute name="title" />
 			
-		<h2> Crear Persona</h2>
+			<tiles:putAttribute name="header" />
+		
+			<tiles:putAttribute name="nav" />
+		
+			<tiles:putAttribute name="body" />
+		
+		</tiles:insertTemplate>
+		
+		
+			
+		<%-- <h2> Crear Persona</h2>
 	
 		<s:form action="registroPersona" >
 			<s:submit value="Crear"> </s:submit >
@@ -43,7 +57,7 @@
 		<s:form action="eliminarPersona" method="DELETE">
 			<s:textfield label="Id de Persona" key="persona_id"/>
 			<s:submit value="Eliminar" />
-		</s:form>
+		</s:form> --%>
 		
 		
 	</body>

@@ -74,15 +74,21 @@
 			<artifactId>log4j-api</artifactId>
 			<version>2.12.4</version>
 		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-slf4j2-impl -->
+		<!--<dependency>
+		    <groupId>org.apache.logging.log4j</groupId>
+		    <artifactId>log4j-slf4j2-impl</artifactId>
+		    <version>2.20.0</version>
+		</dependency>-->
 
-		<!--
-		https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-layout-template-json -->
-		<dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-layout-template-json -->
+		<!--<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-layout-template-json</artifactId>
 			<version>2.18.0</version>
 			<scope>runtime</scope>
-		</dependency>
+		</dependency>-->
 
 
 		<!-- APACHE STRUTS -->
@@ -93,46 +99,41 @@
 			<artifactId>struts2-core</artifactId>
 			<version>2.5.22</version>
 		</dependency>
+		
+	    <dependency>
+	        <groupId>org.apache.struts</groupId>
+	        <artifactId>struts2-tiles-plugin</artifactId>
+	        <version>2.5.22</version>
+	    </dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.apache.tiles/tiles-core -->
-		<dependency>
-			<groupId>org.apache.tiles</groupId>
-			<artifactId>tiles-core</artifactId>
-			<version>2.2.2</version>
-		</dependency>
-
-		<!-- <dependency>
-      <groupId>org.apache.logging.log4j</groupId>
-      <artifactId>log4j-bom</artifactId>
-      <version>2.25.3</version>
-      <type>pom</type>
-    </dependency> -->
-
-		<!--
-		https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-slf4j2-impl -->
-		<!--<dependency>
-	    <groupId>org.apache.logging.log4j</groupId>
-	    <artifactId>log4j-slf4j2-impl</artifactId>
-	    <version>2.24.3</version>
-	    <scope>compile</scope>
-	</dependency> -->
-
-		<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
-		<!-- <dependency>
-	    <groupId>org.slf4j</groupId>
-	    <artifactId>slf4j-api</artifactId>
-	    <version>2.0.17</version>
-	</dependency> -->
-
-
-		<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-simple -->
-		<!-- <dependency>
-	    <groupId>org.slf4j</groupId>
-	    <artifactId>slf4j-simple</artifactId>
-	    <version>2.0.17</version>
-	    <scope>runtime</scope>
-	</dependency> -->
-
+		 <dependency>
+	        <groupId>org.apache.tiles</groupId>
+	        <artifactId>tiles-core</artifactId>
+	        <version>3.0.8</version>
+	    </dependency>
+	    
+	    <!-- https://mvnrepository.com/artifact/org.apache.tiles/tiles-api -->
+	    <!--<dependency>
+	        <groupId>org.apache.tiles</groupId>
+	        <artifactId>tiles-api</artifactId>
+	        <version>3.0.8</version>
+	    </dependency>-->
+	    
+	    <!-- https://mvnrepository.com/artifact/org.apache.tiles/tiles-jsp -->
+	    <!--<dependency>
+	        <groupId>org.apache.tiles</groupId>
+	        <artifactId>tiles-jsp</artifactId>
+	        <version>3.0.8</version>
+	    </dependency>-->
+	    
+	    <!-- https://mvnrepository.com/artifact/org.apache.tiles/tiles-servlet -->
+	    <!--<dependency>
+	        <groupId>org.apache.tiles</groupId>
+	        <artifactId>tiles-servlet</artifactId>
+	        <version>3.0.8</version>
+	    </dependency>-->
+	    
 	</dependencies>
 
 

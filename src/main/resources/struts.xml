@@ -6,11 +6,11 @@
 
     <constant name="struts.devMode" value="true" />
 
-    <package name="default" extends="struts-default" >
+    <package name="default" extends="struts-default, tiles-default" >
     
-    	<result-types>
-    		<result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult"/>
-    	</result-types>
+    	<action name="" class="com.clinica.action.HomeAction">
+    		<result name="success" type="tiles">mainLayout</result>
+    	</action>
     
     	<!-- NAVEGACIÓN -->
     	
@@ -30,39 +30,39 @@
     	<!-- ACCIONES DE PERSONA-->
     	
     	<!-- Creación de Persona-->
-    	<action name="crear" class="com.clinica.action.PersonaAction" method="crearPersona">
+    	<!-- <action name="" class="com.clinica.action.PersonaAction" method="crearPersona">
     		<result name="success">/success.jsp</result>
     		<result name="error" type="redirect">/error.jsp</result>
     		<result name="input">/success.jsp</result>
-    	</action>
+    	</action> -->
     	
     	<!-- Obtener Todas las personas-->
-    	<action name="personas" class="com.clinica.action.PersonaAction" method="obtenerPersonas">
+    	<!-- <action name="personas" class="com.clinica.action.PersonaAction" method="obtenerPersonas">
     		<result name="success">/personas.jsp</result>
     		<result name="error" type="redirect">/error.jsp</result>
     		<result name="input">/personas.jsp</result>
-    	</action>
+    	</action> -->
     	
     	<!-- Obtener Persona por Id-->
-    	<action name="buscarPersona" class="com.clinica.action.PersonaAction" method="obtenerPersonaPorId">
+    	<!-- <action name="buscarPersona" class="com.clinica.action.PersonaAction" method="obtenerPersonaPorId">
     		<result name="success">/personaPorId.jsp</result>
     		<result name="error" type="redirect">/error.jsp</result>
     		<result name="input">/personaPorId.jsp</result>
-    	</action>
+    	</action> -->
     		
     	<!-- Actualizar Persona-->
-    	<action name="actualizarPersona" class="com.clinica.action.PersonaAction" method="actualizarPersona">
+    	<!-- <action name="actualizarPersona" class="com.clinica.action.PersonaAction" method="actualizarPersona">
     		<result name="success">/actualizarPersona.jsp</result>
     		<result name="error" type="redirect">/error.jsp</result>
     		<result name="input">/actualizarPersona.jsp</result>
-    	</action>
+    	</action> -->
     	
     	<!-- Eliminar Persona-->
-    	<action name="eliminarPersona" class="com.clinica.action.PersonaAction" method="eliminarPersona">
+    	<!-- <action name="eliminarPersona" class="com.clinica.action.PersonaAction" method="eliminarPersona">
     		<result name="success">/success.jsp</result>
     		<result name="error" type="redirect">/error.jsp</result>
     		<result name="input">/success.jsp</result>
-    	</action>
+    	</action> -->
    
 
     </package>
