@@ -7,6 +7,17 @@
          version="3.1">
 
     <display-name>ClinicaOdontologica</display-name>
+    
+    <context-param>
+	    <param-name>tilesDefinitions</param-name>
+	    <param-value>/WEB-INF/tiles.xml</param-value>
+	</context-param>
+    
+    <listener>
+	    <listener-class>org.apache.struts2.tiles.StrutsTilesListener</listener-class>
+	</listener>
+    
+    
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
         <welcome-file>index.htm</welcome-file>

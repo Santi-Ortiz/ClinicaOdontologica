@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+	
+	
+<tiles-definitions>
+
+	<definition name="main-layout" template="/jsp/layout/MainLayout.jsp">
+		<put-attribute name="titulo" value="/jsp/sucess.jsp"></put-attribute>
+		<put-attribute name="encabezado" value=""></put-attribute>
+		<put-attribute name="navegacion" value=""></put-attribute>
+		<put-attribute name="cuerpo" value="/jsp/index.jsp"></put-attribute>
+	</definition>
+
+</tiles-definitions>
+       
+       
+   
+       
+
