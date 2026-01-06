@@ -4,13 +4,17 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title></title>
 </head>
 <body>
 
 	<div align="center">
-		<a href="/ClinicaOdontologica/">Inicio </a> 
+		<a href="" >Sobre Nosotros | </a>
+		<a href="inicio-personas">Portal Persona | </a>
+		<a href="">Portal Paciente | </a>
+		<a href="inicio-odontologo">Portal Odontólogo</a>
 	</div>
+
 
 </body>
 </html>

@@ -12,12 +12,17 @@
 		<action name="home">
 			<result name="success" type="tiles">main-layout</result>	
 		</action>
-
-
-		<!--  Vistas de Persona -->
 		
 		<!-- Landing Page -->
 		<action name="">
+			<result name="success" type="tiles">inicio</result>
+		</action>
+		
+		
+		<!--  Vistas de Persona -->
+		
+		<!-- Página principal de Personas -->
+		<action name="inicio-personas">
 			<result name="success" type="tiles">persona.landing</result>
 		</action>
 		
@@ -33,17 +38,7 @@
 			<result name="error" type="redirect">persona.error</result>
 			<result name="input">persona.listar</result>
 		</action>
-
-		<!-- NAVEGACIÓN -->
-
-
-		<action name="actualizar">
-			<result>/actualizarPersona.jsp</result>
-		</action>
-
-
-		<!-- ACCIONES DE PERSONA -->
-
+		
 		<!-- Creación de Persona -->
 		<action name="crear" class="com.clinica.action.PersonaAction"
 			method="crearPersona">
@@ -75,7 +70,33 @@
 			<result name="error" type="redirect">persona.error</result>
 			<result name="input">persona.success</result>
 		</action>
+		
+		<!-- Vistas de Odontologo -->
+		
+		<!-- Página Principal de Odontologo -->
+		<action name="inicio-odontologo">
+			<result name="success" type="tiles">odontologo.landing</result>
+			<result name="error" type="tiles">odontologo.error</result>
+		</action>
+		
+		<!-- Crear Odontologo -->
+		<action name="registro-odontologo">
+			<result name="success" type="tiles">odontologo.registro</result>
+			<result name="error" type="tiles">odontologo.error</result>
+		</action>
 
+		<!-- Listar Odontologos -->
+		<action name="listar-odontologo">
+			<result name="success" type="tiles">odontologo.listar</result>
+			<result name="error" type="tiles">odontologo.error</result>
+		</action>
+
+		<!-- NAVEGACIÓN -->
+
+
+		<action name="actualizar">
+			<result>/actualizarPersona.jsp</result>
+		</action>
 
 	</package>
 

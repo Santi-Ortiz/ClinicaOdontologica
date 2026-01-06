@@ -1,5 +1,7 @@
 package com.clinica.model;
 
+import java.sql.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -20,6 +22,12 @@ public class Responsable extends Persona{
 		this.parentesco = parentesco;
 	}
 
+
+	public Responsable(int numero_identificacion, String nombre, int telefono, Date fecha_nacimiento, String parentesco) {
+		super(numero_identificacion, nombre, telefono, fecha_nacimiento);
+		this.parentesco = parentesco;
+	}
+
 	
 	/* Getters y Setters */
 	
@@ -33,7 +41,7 @@ public class Responsable extends Persona{
 
 	@Override
 	public String toString() {
-		return "\n Responsable -> parentesco: " + parentesco + "\n";
+		return "Responsable -> parentesco: " + parentesco + "\n";
 	}
 	
 	

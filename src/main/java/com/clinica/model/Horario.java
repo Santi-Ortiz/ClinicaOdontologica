@@ -59,7 +59,7 @@ public class Horario {
 
 	@Override
 	public String toString() {
-		return "\n Horario -> horario_id: " + horario_id + ", fecha_inicio: " + fecha_inicio + ", fecha_fin: " + fecha_fin + "\n";
+		return "Horario -> horario_id: " + horario_id + ", fecha_inicio: " + fecha_inicio + ", fecha_fin: " + fecha_fin;
 	}
 	
 	

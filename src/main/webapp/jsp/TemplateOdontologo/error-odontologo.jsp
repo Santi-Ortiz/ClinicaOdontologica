@@ -4,11 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title></title>
+<title>Error</title>
 </head>
 <body>
 
-	<h2>Pagina de header</h2>
+<h2>¡Ha ocurrido un error con Odontologo!</h2>
 
 </body>
 </html>

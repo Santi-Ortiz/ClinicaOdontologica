@@ -1,8 +1,8 @@
 package com.clinica.model;
 
+import java.sql.Date;
 import java.util.List;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -29,6 +29,13 @@ public class Odontologo extends Persona{
 	
 	public Odontologo(Especialidad especialidad, Horario horario, List<Turno> turnos) {
 		super();
+		this.especialidad = especialidad;
+		this.horario = horario;
+		this.turnos = turnos;
+	}
+	
+	public Odontologo(int numero_identificacion, String nombre, int telefono, Date fecha_nacimiento, Especialidad especialidad, Horario horario, List<Turno> turnos) {
+		super(numero_identificacion, nombre, telefono, fecha_nacimiento);
 		this.especialidad = especialidad;
 		this.horario = horario;
 		this.turnos = turnos;
@@ -63,7 +70,7 @@ public class Odontologo extends Persona{
 
 	@Override
 	public String toString() {
-		return "\n Odontologo -> especialidad: " + especialidad + ", horario: " + horario + ", turnos: " + turnos + "\n";
+		return "Odontologo -> especialidad: " + especialidad + ", horario: " + horario + ", turnos: " + turnos;
 	}
 	
 	

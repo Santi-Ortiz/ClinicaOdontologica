@@ -8,7 +8,9 @@
 </head>
 <body>
 
-	<h2>Pagina de header</h2>
+	<div align="center">
+		<a href="/ClinicaOdontologica/">Inicio</a>
+	</div>
 
 </body>
 </html>

@@ -7,7 +7,7 @@
 	<title></title>
 </head>
 	<body>
-		<h1 align="center">Bienvenido a Clinica Odontologica</h1>
+		<h1 align="center">Página Principal de Persona</h1>
 	
 	</body>
 </html>

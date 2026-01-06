@@ -11,8 +11,6 @@ import com.clinica.model.Persona;
 
 public class PersonaService {
 	
-	private static Logger logger = LogManager.getLogger(PersonaDAO.class);
-
 	PersonaDAO personaDAO = new PersonaDAO();
 	
 	public PersonaService() {

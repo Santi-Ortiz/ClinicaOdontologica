@@ -8,7 +8,10 @@
 </head>
 <body>
 
-	<h2>Pagina de header</h2>
+	<p>En esta clínica velamos por su salud y por eso queremos ofrecerle la mejor atención.</p>
+	<p>Por eso, queremos mostrar sus derechos y deberes... </p>
+	
+
 
 </body>
 </html>

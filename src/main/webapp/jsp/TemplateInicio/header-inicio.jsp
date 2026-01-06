@@ -8,7 +8,8 @@
 </head>
 <body>
 
-	<h2>Pagina de header</h2>
+	<h1 align="center">Bienvenido a Clínica Odontológica</h1>
+	<h2 align="center">¡El mejor lugar para su sonrisa!</h2>
 
 </body>
 </html>

@@ -1,5 +1,6 @@
 package com.clinica.model;
 
+import java.sql.Date;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -39,7 +40,16 @@ public class Paciente extends Persona{
 		this.turnos = turnos;
 	}
 	
+	public Paciente(int numero_identificacion, String nombre, int telefono, Date fecha_nacimiento, String enfermedad, String tipo_tratamiento, String rh, Responsable responsable, List<Turno> turnos) {
+		super(numero_identificacion, nombre, telefono, fecha_nacimiento);
+		this.enfermedad = enfermedad;
+		this.tipo_tratamiento = tipo_tratamiento;
+		this.rh = rh;
+		this.responsable = responsable;
+		this.turnos = turnos;
+	}
 
+	
 	/* Getters y Setters */
 
 	public String getEnfermedad() {
@@ -84,10 +94,9 @@ public class Paciente extends Persona{
 
 	@Override
 	public String toString() {
-		return "\n Paciente -> enfermedad: " + enfermedad + ", tipo_tratamiento: " + tipo_tratamiento + ", rh: " + rh
-				+ ", responsable: " + responsable + ", turnos: " + turnos + "\n";
+		return "Paciente -> enfermedad: " + enfermedad + ", tipo_tratamiento: " + tipo_tratamiento + ", rh: " + rh
+				+ ", responsable: " + responsable + ", turnos: " + turnos;
 	}
-	
 	
 
 }

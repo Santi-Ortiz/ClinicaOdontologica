@@ -4,11 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title></title>
+<title>Exito</title>
 </head>
 <body>
 
-	<h2>Pagina de header</h2>
+<h2>¡La acción de Odontologo ha sido ejecutada correctamente!</h2>
 
 </body>
 </html>

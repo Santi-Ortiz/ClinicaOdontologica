@@ -89,5 +89,11 @@ public class Turno {
 	public void setPaciente(Paciente paciente) {
 		this.paciente = paciente;
 	}
+
+	@Override
+	public String toString() {
+		return "Turno -> turnoId: " + turnoId + ", fechaTurno: " + fechaTurno + ", duracionConsulta: " + duracionConsulta
+				+ ", odontologo: " + odontologo + ", paciente: " + paciente;
+	}
 	
 }

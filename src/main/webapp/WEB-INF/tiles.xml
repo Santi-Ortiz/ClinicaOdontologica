@@ -9,36 +9,89 @@
 	<definition name="main-layout" template="/jsp/layout/main-layout.jsp">
 		<put-attribute name="title" value="/jsp/layout/title.jsp" />
 		<put-attribute name="header" value="/jsp/layout/header.jsp" />
-		<put-attribute name="nav" value="/jsp/layout/nav.jsp"/>
+		<put-attribute name="nav" value="/jsp/layout/nav.jsp" />
 		<put-attribute name="body" value="/jsp/layout/body.jsp" />
 	</definition>
 	
-	<!-- Reutilización de mainlayout para Persona-->
+	<!-- Página de Inicio (Landing Page)  -->
+	<definition name="inicio" extends="main-layout">
+		<put-attribute name="title" value="Home" />
+		<put-attribute name="header" value="/jsp/TemplateInicio/header-inicio.jsp" />
+		<put-attribute name="nav" value="/jsp/TemplateInicio/nav-inicio.jsp" />
+		<put-attribute name="body" value="/jsp/TemplateInicio/body-inicio.jsp" />
+	</definition>
+	
+	
+	<!-- ============= PERSONA ============= -->
+	
+	<!-- Página Principal de Persona-->
     <definition name="persona.landing" extends="main-layout">
+		<put-attribute name="title" value="Persona Inicio"/>
         <put-attribute name="header" value="/jsp/TemplatePersona/header-persona.jsp" />
         <put-attribute name="nav" value="/jsp/TemplatePersona/nav-persona.jsp"/>
         <put-attribute name="body" value="/jsp/TemplatePersona/body-persona.jsp"/>
     </definition>
     
-    <!-- Reutilización para formulario de Registro -->
+    <!-- Formulario de Registro Persona-->
     <definition name="persona.registro" extends="main-layout">
-    	<put-attribute name="body" value="/jsp/registro.jsp"></put-attribute>
+		<put-attribute name="title" value="Registro Persona" />
+        <put-attribute name="header" value="/jsp/TemplatePersona/header-persona.jsp" />
+        <put-attribute name="nav" value="/jsp/TemplatePersona/nav-persona.jsp"/>
+    	<put-attribute name="body" value="/jsp/TemplatePersona/registro-persona.jsp" />
     </definition>
     
-    <!-- Reutilización para mostrar todas las personas -->
+    <!-- Mostrar todas las personas -->
     <definition name="persona.listar" extends="main-layout">
-    	<put-attribute name="body" value="/jsp/personas.jsp" />
+		<put-attribute name="title" value="Listar Persona" />
+    	<put-attribute name="body" value="/jsp/TemplatePersona/listar-personas.jsp" />
     </definition>
     
   	<!-- Página de acción correcta -->
     <definition name="persona.success">
-    	<put-attribute name="success" value="/jsp/success.jsp" />
+    	<put-attribute name="success" value="/jsp/TemplatePersona/success-persona.jsp" />
     </definition>
     
     <!-- Página de error -->
     <definition name="persona.error">
-    	<put-attribute name="error" value="/jsp/error.jsp" />
+    	<put-attribute name="error" value="/jsp/TemplatePersona/error-persona.jsp" />
     </definition>
+    
+    
+	<!-- ============= ODONTOLOGO ============= -->
+	
+	<!-- Página de Inicio Odontologo -->
+	<definition name="odontologo.landing" extends="main-layout">
+		<put-attribute name="title" value="Página Odontologo" />
+		<put-attribute name="header" value="/jsp/TemplateOdontologo/header-odontologo.jsp" />
+		<put-attribute name="nav" value="/jsp/TemplateOdontologo/nav-odontologo.jsp" />
+		<put-attribute name="body" value="/jsp/TemplateOdontologo/body-odontologo.jsp" />
+	</definition>
+	
+	<!-- Registro Odontologo -->
+	<definition name="odontologo.registro" extends="main-layout">
+		<put-attribute name="title" value="Página Odontologo" />
+		<put-attribute name="header" value="/jsp/TemplateOdontologo/header-odontologo.jsp" />
+		<put-attribute name="nav" value="/jsp/TemplateOdontologo/nav-odontologo.jsp" />
+		<put-attribute name="body" value="/jsp/TemplateOdontologo/registro-odontologo.jsp" />
+	</definition>
+	
+	<!-- Mostrar todos los Odontologos -->
+	<definition name="odontologo.listar" extends="main-layout">
+		<put-attribute name="title" value="Página Odontologo" />
+		<put-attribute name="header" value="/jsp/TemplateOdontologo/header-odontologo.jsp" />
+		<put-attribute name="nav" value="/jsp/TemplateOdontologo/nav-odontologo.jsp" />
+		<put-attribute name="body" value="/jsp/TemplateOdontologo/listar-odontologo.jsp" />
+	</definition>
+	
+	<!-- Página de acción correcta -->
+	<definition name="odontologo.success">
+		<put-attribute name="success" value="/jsp/TemplateOdontologo/success-odontologo.jsp" />
+	</definition>
+	
+	<!-- Página de Error -->
+	<definition name="odontologo.error">
+		<put-attribute name="error" value="/jsp/TemplateOdontologo/error-odontologo.jsp"/>
+	</definition>
 
 </tiles-definitions>
        
