@@ -2,6 +2,7 @@ package com.clinica.model;
 
 import java.sql.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,8 +20,10 @@ public class Turno {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long turnoId;
 	
+	@Column(nullable = false)
 	private Date fechaTurno;
 	
+	@Column(nullable = false)
 	private int duracionConsulta;
 	
 	// Desde el lado de Turno, se tiene la relación muchos a uno

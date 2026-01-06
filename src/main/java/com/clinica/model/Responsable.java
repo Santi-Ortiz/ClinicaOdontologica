@@ -1,5 +1,6 @@
 package com.clinica.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
@@ -7,6 +8,7 @@ import javax.persistence.Table;
 @Table(name = "RESPONSABLE")
 public class Responsable extends Persona{
 	
+	@Column(nullable = false)
 	private String parentesco;
 	
 	public Responsable() {

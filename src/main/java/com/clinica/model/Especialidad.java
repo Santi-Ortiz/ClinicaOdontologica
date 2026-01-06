@@ -1,5 +1,6 @@
 package com.clinica.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,6 +15,7 @@ public class Especialidad {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long especialidad_id;
 	
+	@Column(unique = true, nullable = false)
 	private String especialidad;
 	
 

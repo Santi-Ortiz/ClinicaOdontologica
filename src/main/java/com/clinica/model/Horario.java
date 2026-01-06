@@ -2,6 +2,7 @@ package com.clinica.model;
 
 import java.sql.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,8 +17,10 @@ public class Horario {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long horario_id;
 	
+	@Column(nullable = false)
 	private Date fecha_inicio;
 	
+	@Column(nullable = false)
 	private Date fecha_fin;
 	
 	public Horario() {

@@ -2,6 +2,7 @@ package com.clinica.model;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -14,7 +15,7 @@ public class Paciente extends Persona{
 	private String enfermedad;
 	
 	private String tipo_tratamiento;
-	
+	@Column(nullable = false)
 	private String rh;
 	
 	@OneToOne

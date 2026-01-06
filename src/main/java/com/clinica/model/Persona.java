@@ -2,6 +2,7 @@ package com.clinica.model;
 
 import java.sql.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,12 +22,16 @@ public class Persona{
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long persona_id;
 	
+	@Column(unique = true, nullable = false)
 	private int numero_identificacion;
 	
+	@Column(nullable = false)
 	private String nombre;
 	
+	@Column(nullable = false)
 	private int telefono;
 	
+	@Column(nullable = false)
 	private Date fecha_nacimiento;
 	
 	public Persona() {
