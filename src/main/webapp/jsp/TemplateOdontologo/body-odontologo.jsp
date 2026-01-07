@@ -23,14 +23,14 @@
 
 	<h2>Obtener Odontologo por Id</h2>
 
-	<s:form action="" method="GET">
+	<s:form action="buscar-odontologo" method="GET">
 		<s:textfield label="Id de Odontologo" key="odontologo_id"></s:textfield>
 		<s:submit value="Buscar" />
 	</s:form>
 
 	<h2>Actualizar Odontologo</h2>
 
-	<s:form action="">
+	<s:form action="odontologo-actualizar-nav">
 		<s:textfield label="Id Odontologo a Actualizar" key="odontologo_id"></s:textfield>
 		<s:submit value="Actualizar" />
 	</s:form>
@@ -38,7 +38,7 @@
 	<h2>Eliminar Odontologo</h2>
 
 
-	<s:form action="" method="DELETE">
+	<s:form action="eliminar-odontologo" method="DELETE">
 		<s:textfield label="Id de Odontologo" key="odontologo_id" />
 		<s:submit value="Eliminar" />
 	</s:form>

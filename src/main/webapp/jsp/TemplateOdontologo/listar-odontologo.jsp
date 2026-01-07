@@ -12,24 +12,20 @@
 <body>
     <h1>ODONTOLÓGOS CREADOS</h1>
     
-    <s:if test="personas != null">
+    <s:if test="odontologos != null">
         <ul>
-            <s:iterator value="personas" var="persona">
+            <s:iterator value="odontologos" var="odontologo">
                 <li>
-                	Persona Id: <s:property value="#persona.personaId"/> <br>
-                    Número Identificación: <s:property value="#persona.numeroIdentificacion"/> <br>
-                    Nombre: <s:property value="#persona.nombre"/> <br>
-                    Telefono: <s:property value="#persona.telefono"/> <br>
-                    Fecha Nacimiento: <s:property value="#persona.fechaNacimiento"/> <br>
+                	Persona Id: <s:property value="#odontologo.personaId"/> <br>
+                    Número Identificación: <s:property value="#odontologo.numeroIdentificacion"/> <br>
+                    Nombre: <s:property value="#odontologo.nombre"/> <br>
+                    Telefono: <s:property value="#odontologo.telefono"/> <br>
+                    Fecha Nacimiento: <s:property value="#odontologo.fechaNacimiento"/> <br>
                     <hr>
                 </li>
             </s:iterator>
         </ul>
     </s:if>
     
-    
-	<s:form action="index">
-		<s:submit value="Volver a Inicio"></s:submit>
-	</s:form>
 </body>
 </html>

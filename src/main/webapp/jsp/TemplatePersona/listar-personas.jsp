@@ -28,7 +28,7 @@
     </s:if>
     
     
-	<s:form action="index">
+	<s:form action="inicio-personas">
 		<s:submit value="Volver a Inicio"></s:submit>
 	</s:form>
 </body>

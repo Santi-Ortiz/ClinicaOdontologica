@@ -7,95 +7,134 @@
 	<constant name="struts.devMode" value="true" />
 
 	<package name="default" extends="struts-default, tiles-default">
-	
+
 		<!-- Layout Principal -->
 		<action name="home">
-			<result name="success" type="tiles">main-layout</result>	
+			<result name="success" type="tiles">main-layout</result>
 		</action>
-		
+
 		<!-- Landing Page -->
 		<action name="">
 			<result name="success" type="tiles">inicio</result>
 		</action>
-		
-		
-		<!--  Vistas de Persona -->
-		
+
+
+		<!-- Vistas de Persona -->
+
 		<!-- Página principal de Personas -->
 		<action name="inicio-personas">
 			<result name="success" type="tiles">persona.landing</result>
 		</action>
-		
+
 		<!-- Vista de Registro de Personas -->
 		<action name="registro-personas">
 			<result name="success" type="tiles">persona.registro</result>
 			<result name="error" type="tiles">persona.error</result>
 		</action>
-		
+
 		<!-- Obtener Todas las personas -->
-		<action name="personas" class="com.clinica.action.PersonaAction" method="obtenerPersonas">
+		<action name="personas"
+			class="com.clinica.action.PersonaAction" method="obtenerPersonas">
 			<result name="success" type="tiles">persona.listar</result>
-			<result name="error" type="redirect">persona.error</result>
-			<result name="input">persona.listar</result>
+			<result name="error" type="tiles">persona.error</result>
+			<result name="input" type="tiles">persona.listar</result>
 		</action>
-		
+
 		<!-- Creación de Persona -->
 		<action name="crear" class="com.clinica.action.PersonaAction"
 			method="crearPersona">
-			<result name="success">persona.success</result>
-			<result name="error" type="redirect">persona.error</result>
-			<result name="input">persona.success</result>
+			<result name="success" type="tiles">persona.success</result>
+			<result name="error" type="tiles">persona.error</result>
+			<result name="input" type="tiles">persona.success</result>
 		</action>
 
 		<!-- Obtener Persona por Id -->
-		<action name="buscarPersona"
+		<action name="buscar-persona"
 			class="com.clinica.action.PersonaAction" method="obtenerPersonaPorId">
-			<result name="success">/personaPorId.jsp</result>
-			<result name="error" type="redirect">persona.error</result>
-			<result name="input">/personaPorId.jsp</result>
+			<result name="success" type="tiles">persona.buscar-id</result>
+			<result name="error" type="tiles">persona.error</result>
+			<result name="input" type="tiles">persona.buscar-id</result>
 		</action>
 
 		<!-- Actualizar Persona -->
-		<action name="actualizarPersona"
+		<action name="actualizar-persona"
 			class="com.clinica.action.PersonaAction" method="actualizarPersona">
-			<result name="success">/actualizarPersona.jsp</result>
-			<result name="error" type="redirect">persona.error</result>
-			<result name="input">/actualizarPersona.jsp</result>
+			<result name="success" type="tiles">persona.success</result>
+			<result name="error" type="tiles">persona.error</result>
+			<result name="input" type="tiles">persona.success</result>
+		</action>
+
+		<!-- Navegación Actualizar Persona -->
+		<action name="persona-actualizar-nav">
+			<result name="success" type="tiles">persona.actualizar</result>
+			<result name="error" type="tiles">persona.error</result>
+			<result name="input" type="tiles">persona.actualizar</result>
 		</action>
 
 		<!-- Eliminar Persona -->
-		<action name="eliminarPersona"
+		<action name="eliminar-persona"
 			class="com.clinica.action.PersonaAction" method="eliminarPersona">
-			<result name="success">persona.success</result>
-			<result name="error" type="redirect">persona.error</result>
-			<result name="input">persona.success</result>
+			<result name="success" type="tiles">persona.success</result>
+			<result name="error" type="tiles">persona.error</result>
+			<result name="input" type="tiles">persona.success</result>
 		</action>
-		
+
 		<!-- Vistas de Odontologo -->
-		
+
 		<!-- Página Principal de Odontologo -->
 		<action name="inicio-odontologo">
 			<result name="success" type="tiles">odontologo.landing</result>
 			<result name="error" type="tiles">odontologo.error</result>
 		</action>
-		
-		<!-- Crear Odontologo -->
-		<action name="registro-odontologo">
+
+		<!-- Navegación a Creación Odontologo -->
+		<action name="registro-odontologo"
+			class="com.clinica.action.OdontologoAction" method="input">
 			<result name="success" type="tiles">odontologo.registro</result>
 			<result name="error" type="tiles">odontologo.error</result>
+			<result name="input" type="tiles">odontologo.registro</result>
+		</action>
+
+		<action name="crear-odontologo"
+			class="com.clinica.action.OdontologoAction" method="crearOdontologo">
+			<result name="success" type="tiles">odontologo.success</result>
+			<result name="error" type="tiles">odontologo.error</result>
+			<result name="input" type="tiles">odontologo.registro</result>
 		</action>
 
 		<!-- Listar Odontologos -->
-		<action name="listar-odontologo">
+		<action name="listar-odontologo" class="com.clinica.action.OdontologoAction" method="obtenerOdontologos">
 			<result name="success" type="tiles">odontologo.listar</result>
 			<result name="error" type="tiles">odontologo.error</result>
+			<result name="input" type="tiles">odontologo.listar</result>
 		</action>
-
-		<!-- NAVEGACIÓN -->
-
-
-		<action name="actualizar">
-			<result>/actualizarPersona.jsp</result>
+		
+		<!-- Buscar Odontologo por Id -->
+		<action name="buscar-odontologo" class="com.clinica.action.OdontologoAction" method="obtenerOdontologoPorId">
+			<result name="success" type="tiles">odontologo.buscar-id</result>
+			<result name="error" type="tiles">odontologo.error</result>
+			<result name="input" type="tiles">odontologo.buscar-id</result>
+		</action>
+		
+		<!-- Navegación Actualizar -->
+		<action name="odontologo-actualizar-nav">
+			<result name="success" type="tiles">odontologo.actualizar</result>
+			<result name="error" type="tiles">odontologo.error</result>
+			<result name="input" type="tiles">odontologo.actualizar</result>
+		</action>
+		
+		<!-- Actualizar Odontologo  -->
+		<action name="actualizar-odontologo" class="com.clinica.action.OdontologoAction" method="actualizarOdontologo">
+			<result name="success" type="tiles">odontologo.success</result>
+			<result name="error" type="tiles">odontologo.error</result>
+			<result name="input" type="tiles">odontologo.success</result>
+		</action>
+		
+		<!-- Eliminar Odontologo -->
+		<action name="eliminar-odontologo" class="com.clinica.action.OdontologoAction" method="eliminarOdontologo">
+			<result name="success" type="tiles">odontologo.success</result>
+			<result name="error" type="tiles">odontologo.error</result>
+			<result name="input" type="tiles">odontologo.success</result>
 		</action>
 
 	</package>

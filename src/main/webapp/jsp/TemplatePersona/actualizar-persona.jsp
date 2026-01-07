@@ -11,7 +11,7 @@
 
 	<h1>Actualizar Persona</h1>
 
-	<s:form action="actualizarPersona" method="PUT">
+	<s:form action="actualizar-persona" method="PUT">
 		<s:hidden name="persona_id"> </s:hidden> 
 		<s:textfield label="Número de Identificación" name="persona.numeroIdentificacion"/> 
 		<s:textfield label="Nombre" name="persona.nombre"/> 

@@ -10,26 +10,28 @@
 <body>
 
 	<div align="center">
-	
+
 		<h2>REGISTRO DE ODONTOLÓGOS</h2>
-	
-		<s:form action="crear" method="POST" >
+
+		<s:form action="crear-odontologo" method="POST">
 
 			<s:textfield label="Número de Identificación"
-				key="odontologo.numeroIdentificacion" />
+				name="odontologo.numeroIdentificacion" />
 
-			<s:textfield label="Nombre" key="odontologo.nombre" />
+			<s:textfield label="Nombre" name="odontologo.nombre" />
 
-			<s:textfield label="Telefono" key="odontologo.telefono" />
+			<s:textfield label="Telefono" name="odontologo.telefono" />
 
 			<s:textfield label="Fecha de Nacimiento (dd/mm/yyyy)"
 				key="odontologo.fechaNacimiento" />
-				
-			<%--  <s:select name="especialidad" list="status" headerKey="" headerValue="-- Select --" id="status" />--%>
 
-			<s:textfield label="Fecha inicio de Horario" />
-			
-			<s:textfield label="Fecha fin de Horario" />
+			<s:select name="especialidad_id" label="Especialidad"
+				list="especialidades" listKey="especialidadId" listValue="especialidad"
+				headerKey="" headerValue="Seleccione una especialidad" />
+
+			<s:textfield label="Fecha inicio de Horario" name="fechaInicio" />
+
+			<s:textfield label="Fecha fin de Horario" name="fechaFin" />
 
 			<s:submit value="Crear Odontologo" />
 

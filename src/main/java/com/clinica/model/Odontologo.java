@@ -3,7 +3,10 @@ package com.clinica.model;
 import java.sql.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -12,10 +15,12 @@ import javax.persistence.Table;
 @Table(name = "ODONTOLOGO")
 public class Odontologo extends Persona{
 
-	@OneToOne
+	@ManyToOne
+	@JoinColumn(name="especialidad_id", nullable=false)
 	private Especialidad especialidad;
 
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL) // Eliminación de horario si es eliminado el Odontologo
+	@JoinColumn(name="horario_id", nullable=false)
 	private Horario horario;
 	
 	// La relación con Turno es uno a muchos, un odontológo tiene muchos turnos

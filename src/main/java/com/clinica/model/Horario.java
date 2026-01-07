@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "HORARIO")
@@ -19,7 +21,7 @@ public class Horario {
 	
 	@Column(nullable = false)
 	private Date fecha_inicio;
-	
+
 	@Column(nullable = false)
 	private Date fecha_fin;
 	

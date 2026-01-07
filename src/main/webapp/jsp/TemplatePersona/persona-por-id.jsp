@@ -17,7 +17,7 @@
 			Número Identificación: <s:property value="persona.numeroIdentificacion"/> <br>
 			Nombre: <s:property value="persona.nombre"/> <br>
 			Telefono: <s:property value="persona.telefono"/> <br>
-			FechaNacimiento <s:property value="persona.fechaNacimiento"/>
+			Fecha Nacimiento: <s:property value="persona.fechaNacimiento"/>
 		</li>
 	</ul>
 
