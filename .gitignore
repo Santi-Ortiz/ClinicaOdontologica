@@ -42,7 +42,8 @@ tmp/
 local.properties
 .loadpath
 .factorypath
-
+/logs
+./logs
 
 ##############################
 ## OS X
