@@ -40,10 +40,10 @@ public class PersonaAction extends ActionSupport{
 		try {
 			personaService.crearPersona(persona);
 		} catch(SQLException e) {
-			logger.error("Excepción de SQL: " + e);
+			logger.error("Ha ocurrido un error de SQL en crear persona: " + e);
 			return ERROR;
 		} catch(Exception e) {
-			logger.error("Error (LOG): " + e);
+			logger.error("Ha ocurrido un error de SQL en crear persona: " + e);
 			return ERROR;
 		}
 		
@@ -56,10 +56,10 @@ public class PersonaAction extends ActionSupport{
 		try {
 			personas = personaService.obtenerPersonas();
 		} catch(SQLException e) {
-			logger.error("Excepción de SQL (LOG): " + e);
+			logger.error("Ha ocurrido un error de SQL en obtener persona: " + e);
 			return ERROR;
 		} catch(Exception e) {
-			logger.error("Error (LOG): " + e);
+			logger.error("Ha ocurrido un error en obtener persona: " + e);
 			return ERROR;
 		}
 		
@@ -71,10 +71,10 @@ public class PersonaAction extends ActionSupport{
 		try {
 			persona = personaService.obtenerPersonaPorId(persona_id);
 		} catch(SQLException e) {
-			logger.error("Excepción de SQL (LOG): " + e);
+			logger.error("Ha ocurrido un error de SQL en obtener persona por id: " + e);
 			return ERROR;
 		} catch(Exception e) {
-			logger.error("Error (LOG): " + e);
+			logger.error("Ha ocurrido un error en obtener persona por id: " + e);
 			return ERROR;
 		}
 		
@@ -86,10 +86,10 @@ public class PersonaAction extends ActionSupport{
 		try {
 			personaService.actualizarPersona(persona);
 		} catch(SQLException e) {
-			logger.error("Excepción de SQL (LOG): " + e);
+			logger.error("Ha ocurrido un error de SQL en actualizar persona: " + e);
 			return ERROR;
 		} catch(Exception e) {
-			logger.error("Error (LOG): " + e);
+			logger.error("Ha ocurrido un error en actualizar persona: " + e);
 			return ERROR;
 		}
 		
@@ -101,10 +101,10 @@ public class PersonaAction extends ActionSupport{
 		try {
 			personaService.eliminarPersona(persona_id);
 		} catch(SQLException e) {
-			logger.error("Excepción de SQL (LOG): " + e);
+			logger.error("Ha ocurrido un error de SQL en eliminar persona: " + e);
 			return ERROR;
 		} catch(Exception e) {
-			logger.error("Error (LOG): " + e);
+			logger.error("Ha ocurrido un error en eliminar persona: " + e);
 			return ERROR;
 		}
 		

@@ -34,11 +34,12 @@ public class EspecialidadAction extends ActionSupport {
 	public String crearEspecialidad() throws SQLException {
 		try {
 			especialidadService.crearEspecialidad(especialidad);
+			logger.info("Se ha creado correctamente la especialidad");
 		} catch (SQLException e) {
-			logger.error("Excepción de SQL: " + e);
+			logger.error("Ha ocurrido un error de SQL en crear especialidad: " + e);
 			return ERROR;
 		} catch (Exception e) {
-			logger.error("Error (LOG): " + e);
+			logger.error("Ha ocurrido un error en crear especialidad: " + e);
 			return ERROR;
 		}
 
@@ -48,11 +49,12 @@ public class EspecialidadAction extends ActionSupport {
 	public String obtenerEspecialidades() throws SQLException {
 		try {
 			especialidades = especialidadService.obtenerEspecialidades();
+			logger.info("Se han obtenido todas las especialidades correctamente");
 		} catch (SQLException e) {
-			logger.error("Excepción de SQL: " + e);
+			logger.error("Ha ocurrido un error de SQL en obtener todas las especialidades: " + e);
 			return ERROR;
 		} catch (Exception e) {
-			logger.error("Error (LOG): " + e);
+			logger.error("Ha ocurrido un error en obtener todas las especialidades: " + e);
 			return ERROR;
 		}
 
@@ -62,11 +64,12 @@ public class EspecialidadAction extends ActionSupport {
 	public String obtenerEspecialidadPorId() throws SQLException {
 		try {
 			especialidad = especialidadService.obtenerEspecialidadPorId(especialidad_id);
+			logger.info("Se hanobtenido lasespecialidad con id {} correctamente", especialidad_id);
 		} catch (SQLException e) {
-			logger.error("Excepción de SQL: " + e);
+			logger.error("Ha ocurrido un error de SQL en obtener la especialidad por id: " + e);
 			return ERROR;
 		} catch (Exception e) {
-			logger.error("Error (LOG): " + e);
+			logger.error("Ha ocurrido un error en obtener la especialidad por id: " + e);
 			return ERROR;
 		}
 
@@ -76,11 +79,12 @@ public class EspecialidadAction extends ActionSupport {
 	public String actualizarEspecialidad() throws SQLException {
 		try {
 			especialidadService.actualizarEspecialidad(especialidad);
+			logger.info("Se ha actualizado la especialidad correctamente");
 		} catch (SQLException e) {
-			logger.error("Excepción de SQL: " + e);
+			logger.error("Ha ocurrido un error de SQL en actualizar la especialidad: " + e);
 			return ERROR;
 		} catch (Exception e) {
-			logger.error("Error (LOG): " + e);
+			logger.error("Ha ocurrido un error en actualizar la especialidad: " + e);
 			return ERROR;
 		}
 
@@ -90,11 +94,12 @@ public class EspecialidadAction extends ActionSupport {
 	public String eliminarEspecialidad() throws SQLException {
 		try {
 			especialidadService.eliminarEspecialidad(especialidad_id);
+			logger.info("Se ha eliminado la especialidad con id {} correctamente", especialidad_id);
 		} catch (SQLException e) {
-			logger.error("Excepción de SQL: " + e);
+			logger.error("Ha ocurrido un error de SQL en eliminar la especialidad: " + e);
 			return ERROR;
 		} catch (Exception e) {
-			logger.error("Error (LOG): " + e);
+			logger.error("Ha ocurrido un error en eliminar la especialidad: " + e);
 			return ERROR;
 		}
 

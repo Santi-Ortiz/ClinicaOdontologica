@@ -67,11 +67,12 @@ public class OdontologoAction extends ActionSupport {
 			odontologo.setHorario(horario);
 			
 			odontologoService.crearOdontologo(odontologo);
+			logger.info("Se ha creado el odontologo correctamente");
 		} catch (SQLException e) {
-			logger.error("Excepción de SQL: " + e);
+			logger.error("Ha ocurrido un error de SQL en crear odontologo: " + e);
 			return ERROR;
 		} catch (Exception e) {
-			logger.error("Error (LOG): " + e);
+			logger.error("Ha ocurrido un error en crear odontologo: " + e);
 			return ERROR;
 		}
 
@@ -83,12 +84,12 @@ public class OdontologoAction extends ActionSupport {
 
 		try {
 			odontologos = odontologoService.obtenerOdontologos();
-			logger.info("Odontologos encontrados: {}", odontologos);
+			logger.info("Odontologos encontrados: {}", odontologos.size());
 		} catch (SQLException e) {
-			logger.error("Excepción de SQL (LOG): " + e);
+			logger.error("Ha ocurrido un error de SQL en obtener odontologos: " + e);
 			return ERROR;
 		} catch (Exception e) {
-			logger.error("Error (LOG): " + e);
+			logger.error("Ha ocurrido un error en obtener odontologos: " + e);
 			return ERROR;
 		}
 
@@ -99,11 +100,12 @@ public class OdontologoAction extends ActionSupport {
 
 		try {
 			odontologo = odontologoService.obtenerOdontologoPorId(odontologo_id);
+			logger.info("Se obtuvo el odontologo con id {} correctamente", odontologo_id);
 		} catch (SQLException e) {
-			logger.error("Excepción de SQL (LOG): " + e);
+			logger.error("Ha ocurrido un error de SQL en obtener odontologo por id: " + e);
 			return ERROR;
 		} catch (Exception e) {
-			logger.error("Error (LOG): " + e);
+			logger.error("Ha ocurrido un error en obtener odontologo por id: " + e);
 			return ERROR;
 		}
 
@@ -114,11 +116,12 @@ public class OdontologoAction extends ActionSupport {
 
 		try {
 			odontologoService.actualizarOdontologo(odontologo);
+			logger.info("Se ha actualizado el odontologo con id {} correctamente", odontologo.getPersonaId());
 		} catch (SQLException e) {
-			logger.error("Excepción de SQL (LOG): " + e);
+			logger.error("Ha ocurrido un error de SQL en actualizar odontologo: " + e);
 			return ERROR;
 		} catch (Exception e) {
-			logger.error("Error (LOG): " + e);
+			logger.error("Ha ocurrido un error en actualizar odontologo: " + e);
 			return ERROR;
 		}
 
@@ -129,11 +132,12 @@ public class OdontologoAction extends ActionSupport {
 
 		try {
 			odontologoService.eliminarOdontologo(odontologo_id);
+			logger.info("Se ha eliminado el odontologo con id {} correctamente", odontologo_id);
 		} catch (SQLException e) {
-			logger.error("Excepción de SQL (LOG): " + e);
+			logger.error("Ha ocurrido un error de SQL en eliminar odontologo: " + e);
 			return ERROR;
 		} catch (Exception e) {
-			logger.error("Error (LOG): " + e);
+			logger.error("Ha ocurrido un error en eliminar odontologo: " + e);
 			return ERROR;
 		}
 
@@ -143,7 +147,7 @@ public class OdontologoAction extends ActionSupport {
 	@Override
 	public String input() throws SQLException {
 		especialidades = especialidadService.obtenerEspecialidades();
-		logger.info("Especialidades Cargadas: {}", especialidades);
+		logger.info("Especialidades Cargadas: {}", especialidades.size());
 		return INPUT;
 	}
 

@@ -5,7 +5,7 @@
 
 	<!-- Variables de Entorno-->
 	<Properties>
-		<Property name="filepath" value="logs" />
+		<Property name="filepath" value="C:\Users\santiago.ortiz-alarc\Documents\Proyectos Github\ClinicaOdontologica\logs" />
 		<Property name="filename" value="main" />
 		<Property name="maxFileSize" value="100MB" />
 	</Properties>
@@ -18,11 +18,11 @@
 
 		<!-- Se escriben logs en archivo .log-->
 		<RollingFile name="main-file"
-			fileName="${filepath}/${filename}.log"
-			filePattern="${filepath}/${filename}.log">
+			fileName="${filepath}/${filename}-${date:yyyyMMdd_HHmm}.log"
+			filePattern="${filepath}/${filename}-%d{HH:mm:ss:SSS}.log">
 
 			<PatternLayout
-				pattern="%d{HH-mm-ss-SSS} [%t] %-5level %logger{36} - %msg%n" />
+				pattern="%d{HH:mm:ss:SSS} [%t] %-5level %logger{36} - %msg%n" />
 
 			<!--Se resetea el archivo de log cuando supere el tamaño estipulado-->
 			<SizeBasedTriggeringPolicy size="${maxFileSize}" />
