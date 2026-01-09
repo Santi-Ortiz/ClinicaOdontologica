@@ -7,7 +7,7 @@
 	<Properties>
 		<Property name="filepath" value="C:\Users\santiago.ortiz-alarc\Documents\Proyectos Github\ClinicaOdontologica\logs" />
 		<Property name="filename" value="main" />
-		<Property name="maxFileSize" value="100MB" />
+		<Property name="maxFileSize" value="10B" />
 	</Properties>
 
 	<!-- Appenders: Responsables de escribir logs en un objetivo particular

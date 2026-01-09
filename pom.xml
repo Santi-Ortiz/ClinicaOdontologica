@@ -13,6 +13,14 @@
 	<name>ClinicaOdontologica</name>
 
 	<dependencies>
+	
+	
+		<!-- Proyecto ClinicaBackend-->
+		<dependency>
+			<groupId>com.clinica.backend</groupId>
+			<artifactId>ClinicaBackend</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 
 		<!-- Dependencias de Persistencia: Hibernate y JPA -->
 
