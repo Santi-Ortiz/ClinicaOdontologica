@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+       
+<tiles-definitions>
+
+	<!-- Plantilla (layout) principal -->
+	<definition name="main-layout" template="/jsp/layout/main-layout.jsp">
+		<put-attribute name="title" value="/jsp/layout/title.jsp" />
+		<put-attribute name="header" value="/jsp/layout/header.jsp" />
+		<put-attribute name="nav" value="/jsp/layout/nav.jsp" />
+		<put-attribute name="body" value="/jsp/layout/body.jsp" />
+	</definition>
+	
+	<!-- Página de Inicio (Landing Page)  -->
+	<definition name="inicio" extends="main-layout">
+		<put-attribute name="title" value="Home" />
+		<put-attribute name="header" value="/jsp/TemplateInicio/header-inicio.jsp" />
+		<put-attribute name="nav" value="/jsp/TemplateInicio/nav-inicio.jsp" />
+		<put-attribute name="body" value="/jsp/TemplateInicio/body-inicio.jsp" />
+	</definition>
+	
+	
+	<!-- ============= PERSONA ============= -->
+	
+	<!-- Página Principal de Persona-->
+    <definition name="persona.landing" extends="main-layout">
+		<put-attribute name="title" value="Persona Inicio"/>
+        <put-attribute name="header" value="/jsp/TemplatePersona/header-persona.jsp" />
+        <put-attribute name="nav" value="/jsp/TemplatePersona/nav-persona.jsp"/>
+        <put-attribute name="body" value="/jsp/TemplatePersona/body-persona.jsp"/>
+    </definition>
+    
+    <!-- Formulario de Registro Persona-->
+    <definition name="persona.registro" extends="main-layout">
+		<put-attribute name="title" value="Registro Persona" />
+        <put-attribute name="header" value="/jsp/TemplatePersona/header-persona.jsp" />
+        <put-attribute name="nav" value="/jsp/TemplatePersona/nav-persona.jsp"/>
+    	<put-attribute name="body" value="/jsp/TemplatePersona/registro-persona.jsp" />
+    </definition>
+    
+    <!-- Mostrar todas las personas -->
+    <definition name="persona.listar" extends="main-layout">
+		<put-attribute name="title" value="Listar Persona" />
+        <put-attribute name="header" value="/jsp/TemplatePersona/header-persona.jsp" />
+        <put-attribute name="nav" value="/jsp/TemplatePersona/nav-persona.jsp"/>
+    	<put-attribute name="body" value="/jsp/TemplatePersona/listar-personas.jsp" />
+    </definition>
+    
+    <!-- Buscar Persona por Id -->
+    <definition name="persona.buscar-id" extends="main-layout">
+    	<put-attribute name="title" value="Búsqueda por Id"></put-attribute>
+    	<put-attribute name="header" value="/jsp/TemplatePersona/header-persona.jsp"></put-attribute>
+    	<put-attribute name="nav" value="/jsp/TemplatePersona/nav-persona.jsp"></put-attribute>
+    	<put-attribute name="body" value="/jsp/TemplatePersona/persona-por-id.jsp"></put-attribute>
+    </definition>
+    
+    <!-- Navegación a Actualizar Persona -->
+    <definition name="actualizar" extends="main-layout">
+    	<put-attribute name="title" value="Actualizar Persona"></put-attribute>
+    	<put-attribute name="header" value="/jsp/TemplatePersona/header-persona.jsp"></put-attribute>
+    	<put-attribute name="nav" value="/jsp/TemplatePersona/nav-persona.jsp"></put-attribute>
+    	<put-attribute name="body" value="/jsp/TemplatePersona/actualizar-persona.jsp"></put-attribute>
+    </definition>
+    
+    <!-- Actualizar Persona -->
+    <definition name="persona.actualizar" extends="main-layout">
+    	<put-attribute name="title" value="Actualizar Persona"></put-attribute>
+    	<put-attribute name="header" value="/jsp/TemplatePersona/header-persona.jsp"></put-attribute>
+    	<put-attribute name="nav" value="/jsp/TemplatePersona/nav-persona.jsp"></put-attribute>
+    	<put-attribute name="body" value="/jsp/TemplatePersona/actualizar-persona.jsp"></put-attribute>
+    </definition>
+    
+  	<!-- Página de acción correcta -->
+    <definition name="persona.success" extends="main-layout">
+    	<put-attribute name="title" value="Página de Éxito"></put-attribute>
+    	<put-attribute name="header" value="/jsp/TemplatePersona/success-persona.jsp"></put-attribute>
+    	<put-attribute name="nav" value="" />
+    	<put-attribute name="body" value="" />
+    </definition>
+    
+    <!-- Página de error -->
+    <definition name="persona.error" extends="main-layout">
+    	<put-attribute name="title" value="Página de Error"></put-attribute>
+    	<put-attribute name="header" value="/jsp/TemplatePersona/error-persona.jsp"></put-attribute>
+    	<put-attribute name="nav" value="" />
+    	<put-attribute name="body" value="" />
+    </definition>
+    
+    
+	<!-- ============= ODONTOLOGO ============= -->
+	
+	<!-- Página de Inicio Odontologo -->
+	<definition name="odontologo.landing" extends="main-layout">
+		<put-attribute name="title" value="Página Odontologo" />
+		<put-attribute name="header" value="/jsp/TemplateOdontologo/header-odontologo.jsp" />
+		<put-attribute name="nav" value="/jsp/TemplateOdontologo/nav-odontologo.jsp" />
+		<put-attribute name="body" value="/jsp/TemplateOdontologo/body-odontologo.jsp" />
+	</definition>
+	
+	<!-- Registro Odontologo -->
+	<definition name="odontologo.registro" extends="main-layout">
+		<put-attribute name="title" value="Página Odontologo" />
+		<put-attribute name="header" value="/jsp/TemplateOdontologo/header-odontologo.jsp" />
+		<put-attribute name="nav" value="/jsp/TemplateOdontologo/nav-odontologo.jsp" />
+		<put-attribute name="body" value="/jsp/TemplateOdontologo/registro-odontologo.jsp" />
+	</definition>
+	
+	<!-- Mostrar todos los Odontologos -->
+	<definition name="odontologo.listar" extends="main-layout">
+		<put-attribute name="title" value="Página Odontologo" />
+		<put-attribute name="header" value="/jsp/TemplateOdontologo/header-odontologo.jsp" />
+		<put-attribute name="nav" value="/jsp/TemplateOdontologo/nav-odontologo.jsp" />
+		<put-attribute name="body" value="/jsp/TemplateOdontologo/listar-odontologo.jsp" />
+	</definition>
+	
+	<!-- Buscar Odontologo por Id -->
+	<definition name="odontologo.buscar-id" extends="main-layout">
+		<put-attribute name="title" value="Página Odontologo" />
+		<put-attribute name="header" value="/jsp/TemplateOdontologo/header-odontologo.jsp" />
+		<put-attribute name="nav" value="/jsp/TemplateOdontologo/nav-odontologo.jsp" />
+		<put-attribute name="body" value="/jsp/TemplateOdontologo/odontologo-por-id.jsp" />
+	</definition>
+	
+	<!-- Actualizar Odontologo -->
+	<definition name="odontologo.actualizar" extends="main-layout">
+		<put-attribute name="title" value="Página Odontologo" />
+		<put-attribute name="header" value="/jsp/TemplateOdontologo/header-odontologo.jsp" />
+		<put-attribute name="nav" value="/jsp/TemplateOdontologo/nav-odontologo.jsp" />
+		<put-attribute name="body" value="/jsp/TemplateOdontologo/actualizar-odontologo.jsp" />
+	</definition>
+	
+	<!-- Página de acción correcta -->
+	<definition name="odontologo.success" extends="main-layout">
+		<put-attribute name="title" value="Página de Éxito" />
+		<put-attribute name="header" value="/jsp/TemplateOdontologo/success-odontologo.jsp" />
+    	<put-attribute name="nav" value="" />
+    	<put-attribute name="body" value="" />
+	</definition>
+	
+	<!-- Página de Error -->
+	<definition name="odontologo.error">
+		<put-attribute name="title" value="Página de Error" />
+		<put-attribute name="header" value="/jsp/TemplateOdontologo/error-odontologo.jsp"/>
+    	<put-attribute name="nav" value="" />
+    	<put-attribute name="body" value="" />
+	</definition>
+
+</tiles-definitions>
+       
+       
+   
+       
+
