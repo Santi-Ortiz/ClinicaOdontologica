@@ -5,7 +5,7 @@
 
 	<!-- Variables de Entorno-->
 	<Properties>
-		<Property name="filepath" value="C:\Users\santiago.ortiz-alarc\Documents\Proyectos Github\ClinicaOdontologica\logs" />
+		<Property name="filepath" value="C:\Users\santiago.ortiz-alarc\Documents\Proyectos-Github\ClinicaOdontologica\logs" />
 		<Property name="filename" value="main" />
 		<Property name="maxFileSize" value="10MB" />
 	</Properties>
